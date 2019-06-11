@@ -23,6 +23,7 @@ This project is designed for anyone wanting to access GPIOs of a Raspberry Pi an
 
 - Download the [latest ECAP from Instantiations](https://www.instantiations.com/ecap/)
 - Explore the [documentation](docs/)
+- Read some [related blog posts](https://marianopeck.wordpress.com/tag/pigpio/) 
 
 ## Installation
 
