@@ -23,7 +23,7 @@ This project is designed for anyone wanting to access GPIOs of a Raspberry Pi an
 
 - Download the [latest ECAP from Instantiations](https://www.instantiations.com/ecap/)
 - Explore the [documentation](docs/)
-- Read some [related blog posts](https://marianopeck.wordpress.com/tag/pigpio/) 
+- Read some [related blog posts](https://marianopeck.wordpress.com/tag/pigpio/)
 
 ## Installation
 
@@ -33,7 +33,8 @@ To load the project in a VASmalltalk image, or declare it as a dependency of you
 ## Acknowledgments
 
 - vast-pigpio started as a clone of [RaspberryHardwareInterface](http://vastgoodies.com/projects/Raspberry%2520Pi%2520Hardware%2520Interface) which was was a port done by Louis LaBrunda from Squeak's implementation done by Tim Rowledge.
-- [Norbert Schlemmer](https://github.com/Noschvie) for the work on getting the examples to work in Raspberry.
+- [Norbert Schlemmer](https://github.com/Noschvie)
+- [Gerardo Richarte](https://github.com/gerasdf)
 - Github repository layout was generated with [Ba-St Github-setup project](https://github.com/ba-st/GitHub-setup).
 
 ## Contributing
