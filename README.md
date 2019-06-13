@@ -35,6 +35,7 @@ To load the project in a VASmalltalk image, or declare it as a dependency of you
 - vast-pigpio started as a clone of [RaspberryHardwareInterface](http://vastgoodies.com/projects/Raspberry%2520Pi%2520Hardware%2520Interface) which was was a port done by Louis LaBrunda from Squeak's implementation done by Tim Rowledge.
 - [Norbert Schlemmer](https://github.com/Noschvie)
 - [Gerardo Richarte](https://github.com/gerasdf)
+- [Joan, pigpio author](https://github.com/joan2937)
 - Github repository layout was generated with [Ba-St Github-setup project](https://github.com/ba-st/GitHub-setup).
 
 ## Contributing
