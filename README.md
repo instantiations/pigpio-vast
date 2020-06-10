@@ -1,5 +1,5 @@
 <p align="center">
- <h1 align="center">Pigpio wrapper for VASmalltalk</h1>
+ <h1 align="center">Pigpio wrapper for VAST Platform (VA Smalltalk)</h1>
   <p align="center">
     This is a Smalltalk wrapper of the C library pigpio to manage the GPIO pins of a Raspberry Pi
     <br>
