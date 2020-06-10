@@ -27,7 +27,7 @@ This project is designed for anyone wanting to access GPIOs of a Raspberry Pi an
 
 ## Installation
 
-To load the project in a VASmalltalk image, or declare it as a dependency of your own project follow this [instructions](docs/Installation.md).
+To load the project in a VA Smalltalk image, or declare it as a dependency of your own project follow this [instructions](docs/Installation.md).
 
 
 ## Acknowledgments
