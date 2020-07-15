@@ -19,15 +19,33 @@ This project is designed for anyone wanting to access GPIOs of a Raspberry Pi an
 - The code is licensed under [MIT](LICENSE).
 - The documentation is licensed under [CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/).
 
-## Quick Start
-
-- Download the [latest ECAP from Instantiations](https://www.instantiations.com/ecap/)
-- Explore the [documentation](docs/)
-- Read some [related blog posts](https://marianopeck.wordpress.com/tag/pigpio/)
 
 ## Installation
 
-To load the project in a VA Smalltalk image, or declare it as a dependency of your own project follow this [instructions](docs/Installation.md).
+1. Install [VA Smalltalk 9.2.1 or newer](https://www.instantiations.com/products/vasmalltalk/download.html).
+2. Install Tonel support in your development image following [this guide](https://github.com/vasmalltalk/tonel-vast#installation).
+3. Clone this repository.
+4. The easiest and recommended approach is to install it via a script:
+
+```smalltalk
+| loader path |
+path := (CfsPath named: '<insert path to root pigpio-vast local repo here>').
+loader := TonelLoader readFromPath: path.
+loader
+	beUnattended; "do not prompt and use all defaults"
+	useGitVersion.
+loader loadAllMapsWithRequiredMaps.
+```
+
+Or you can load the Configuration Map `RaspberryHardwareInterfaceCore` from the context menu of the Configuration Maps Browser: `"Import"` -> `"Load Configuration Maps from Tonel repository..."` -> select path to root `pigpio-vast` local repo. This will open a dialog and will use convenient defaults for the load. Refer to [its documentation](https://github.com/instantiations/tonel-vast#using-gui-menus) for more details.
+
+5. Optionally run the SUnit tests included in the map `RaspberryHardwareInterfaceTest` to ensure correct installation. One easy way is to right-click on the `RaspberryHardwareInterfaceTest` map name in the Name pane (as opposed to version pane ) and then select `Test Loaded Applications`.
+
+
+## Quick Start
+
+- Download the [latest ECAP from Instantiations](https://www.instantiations.com/ecap/)
+- Read some [related blog posts](https://marianopeck.wordpress.com/tag/pigpio/)
 
 
 ## Acknowledgments
