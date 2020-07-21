@@ -12,18 +12,18 @@
 				]
 			}
 		],
-		#ts : 3737873857,
+		#ts : 3772792225,
 		#comment : '',
 		#formatVersion : '1.1',
 		#applications : OrderedCollection [
 			{
 				#name : 'RaspberryHardwareInterfaceCoreApp',
-				#versionName : '0.18',
-				#ts : 3737874047
+				#versionName : '0.21',
+				#ts : 3772792098
 			}
 		],
 		#name : 'RaspberryHardwareInterfaceCore',
-		#versionName : '2.00'
+		#versionName : '2.01'
 	},
 	{
 		#conditions : [
@@ -37,13 +37,13 @@
 					},
 					{
 						#name : 'RaspberryHardwareInterfaceCore',
-						#versionName : '2.00',
-						#ts : 3737873857
+						#versionName : '2.01',
+						#ts : 3772792225
 					}
 				]
 			}
 		],
-		#ts : 3772260095,
+		#ts : 3772792220,
 		#comment : '',
 		#formatVersion : '1.1',
 		#applications : OrderedCollection [
@@ -54,6 +54,6 @@
 			}
 		],
 		#name : 'RaspberryHardwareInterfaceTest',
-		#versionName : '2.01'
+		#versionName : '2.02'
 	}
 ]

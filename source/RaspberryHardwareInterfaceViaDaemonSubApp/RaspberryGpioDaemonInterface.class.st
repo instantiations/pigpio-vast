@@ -1822,7 +1822,7 @@ RaspberryGpioDaemonInterface >> releaseI2cBus: bus [
 RaspberryGpioDaemonInterface >> releaseSpiBus: bus [
 	"Disconnect from the SPI device, freeing the handle etc.  Returns 0 if ok, otherwise GpioBadHandle."
 
-	^(bus isNil or: [bus isUndefined]) ifFalse: [SpiClose callWith: id with: bus handle].
+	^bus isNil ifFalse: [SpiClose callWith: id with: bus handle].
 
 ]
 
