@@ -53,6 +53,7 @@ Or you can load the Configuration Map `RaspberryHardwareInterfaceCore` from the 
 - vast-pigpio started as a clone of [RaspberryHardwareInterface](http://vastgoodies.com/projects/Raspberry%2520Pi%2520Hardware%2520Interface) which was was a port done by Louis LaBrunda from Squeak's implementation done by Tim Rowledge.
 - [Norbert Schlemmer](https://github.com/Noschvie)
 - [Gerardo Richarte](https://github.com/gerasdf)
+- [Anton Petrov](https://github.com/ZitronenSchrank) and [HRWorks](https://www.hrworks.de/) for their work on the MFRC522 wrapper
 - [Joan, pigpio author](https://github.com/joan2937)
 - Github repository layout was generated with [Ba-St Github-setup project](https://github.com/ba-st/GitHub-setup).
 
