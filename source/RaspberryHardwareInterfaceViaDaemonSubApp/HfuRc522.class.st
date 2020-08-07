@@ -1,3 +1,23 @@
+"
+The following tutorial and python libary has been used as a reference:
+https://pimylifeup.com/raspberry-pi-rfid-rc522/
+https://github.com/pimylifeup/MFRC522-python
+
+For wiring and assembly, you can see:
+
+https://medium.com/coinmonks/for-beginners-how-to-set-up-a-raspberry-pi-rfid-rc522-reader-and-record-data-on-iota-865f67843a2d
+https://www.raspberrypi-spy.co.uk/2018/02/rc522-rfid-tag-read-raspberry-pi/
+https://medium.com/@rfkledig/writing-data-on-a-rfid-tag-40b5083794a6
+
+Below is an example:
+
+| theHandler theDevice |
+theHandler := RaspberryGpioDaemonInterface raspberryGpioStart.
+theDevice := theHandler createSpiDevice: HfuSimpleRc522 channel: 0 speed: 1000000 flags: 0.
+
+theDevice writeStringToCard: 'Hello'.
+theDevice readCardAsString
+"
 Class {
 	#name : 'HfuRc522',
 	#superclass : 'SpiDevice',
