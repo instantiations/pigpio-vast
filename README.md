@@ -22,7 +22,7 @@ This project is designed for anyone wanting to access GPIOs of a Raspberry Pi an
 
 ## Installation
 
-1. Install [VA Smalltalk 9.2.1 or newer](https://www.instantiations.com/products/vasmalltalk/download.html).
+1. Install [VA Smalltalk 11.0.1 or newer](https://www.instantiations.com/products/vasmalltalk/download.html).
 2. Install Tonel support in your development image following [this guide](https://github.com/vasmalltalk/tonel-vast#installation).
 3. Clone this repository.
 4. The easiest and recommended approach is to install it via a script:
