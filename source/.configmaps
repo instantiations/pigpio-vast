@@ -6,24 +6,24 @@
 				#requiredMaps : [
 					{
 						#name : 'ENVY/Image IPC ES-X/MOTIF',
-						#versionName : 'V 9.2.0  [416]',
+						#versionName : 'V 9.1.0  [409]',
 						#ts : 3706278039
 					}
 				]
 			}
 		],
-		#ts : 3774252393,
+		#ts : 3836547967,
 		#comment : '',
 		#formatVersion : '1.1',
 		#applications : OrderedCollection [
 			{
 				#name : 'RaspberryHardwareInterfaceCoreApp',
-				#versionName : '0.23',
-				#ts : 3774252366
+				#versionName : '2.06',
+				#ts : 3836547463
 			}
 		],
 		#name : 'RaspberryHardwareInterfaceCore',
-		#versionName : '2.03'
+		#versionName : '2.06'
 	},
 	{
 		#conditions : [
@@ -32,28 +32,28 @@
 				#requiredMaps : [
 					{
 						#name : 'z.ST: SUnit',
-						#versionName : 'V 9.2.2  [002]',
-						#ts : 3768827234
+						#versionName : 'V 11.0.1  [513]',
+						#ts : 3834696276
 					},
 					{
 						#name : 'RaspberryHardwareInterfaceCore',
-						#versionName : '2.03',
-						#ts : 3774252393
+						#versionName : '2.06',
+						#ts : 3836547967
 					}
 				]
 			}
 		],
-		#ts : 3774252404,
+		#ts : 3836549776,
 		#comment : '',
 		#formatVersion : '1.1',
 		#applications : OrderedCollection [
 			{
 				#name : 'RaspberryHardwareInterfaceTestApp',
-				#versionName : '0.07',
-				#ts : 3737877984
+				#versionName : '2.06',
+				#ts : 3836547967
 			}
 		],
 		#name : 'RaspberryHardwareInterfaceTest',
-		#versionName : '2.04'
+		#versionName : '2.06'
 	}
 ]

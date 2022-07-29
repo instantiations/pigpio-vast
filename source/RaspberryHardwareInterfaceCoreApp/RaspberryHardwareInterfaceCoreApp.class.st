@@ -10,7 +10,7 @@ Class {
 	#category : 'RaspberryHardwareInterfaceCoreApp'
 }
 
-{ #category : 'Not categorized' }
+{ #category : 'Pool Dictionaries' }
 RaspberryHardwareInterfaceCoreApp class >> _PRAGMA_RaspberryGpioConstants [
 
 	"%%PRAGMA DECLARE
@@ -543,7 +543,7 @@ RaspberryHardwareInterfaceCoreApp class >> _PRAGMA_RaspberryGpioConstants [
 
 ]
 
-{ #category : 'Not categorized' }
+{ #category : 'Pool Dictionaries' }
 RaspberryHardwareInterfaceCoreApp class >> _PRAGMA_RaspberryGpioDaemonFunctions [
 
 	"%%PRAGMA DECLARE
@@ -684,7 +684,7 @@ RaspberryHardwareInterfaceCoreApp class >> _PRAGMA_RaspberryGpioDaemonFunctions 
 
 ]
 
-{ #category : 'Not categorized' }
+{ #category : 'Pool Dictionaries' }
 RaspberryHardwareInterfaceCoreApp class >> _PRAGMA_RaspberryGpioFunctions [
 
 	"%%PRAGMA DECLARE
@@ -858,7 +858,7 @@ RaspberryHardwareInterfaceCoreApp class >> _PRAGMA_RaspberryGpioFunctions [
 
 ]
 
-{ #category : 'Not categorized' }
+{ #category : 'Pool Dictionaries' }
 RaspberryHardwareInterfaceCoreApp class >> _PRAGMA_RaspberryGpioUltrasonicDaemonFunctions [
 
 	"%%PRAGMA DECLARE
@@ -871,8 +871,7 @@ RaspberryHardwareInterfaceCoreApp class >> _PRAGMA_RaspberryGpioUltrasonicDaemon
 
 ]
 
-{ #category : '-',
- #vaCategories : ['-','AbtEdit','AutoGen'],
+{ #category : 'Testing',
   #vaVisibility : 'private' }
 RaspberryHardwareInterfaceCoreApp class >> abtIsViewApplication [
 

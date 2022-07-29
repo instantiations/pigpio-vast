@@ -2,8 +2,7 @@ Extension {
 	#name : 'Integer'
 }
 
-{ #category : '*RaspberryHardwareInterfaceCoreApp',
- #vaCategories : ['Raspberry Tools'] }
+{ #category : 'Raspberry Tools' }
 Integer >> as2ByteArray [
 	"Answer a ByteArray of size 2."
 	| bytes |
@@ -15,8 +14,7 @@ Integer >> as2ByteArray [
 
 ]
 
-{ #category : '*RaspberryHardwareInterfaceCoreApp',
- #vaCategories : ['Raspberry Tools'] }
+{ #category : 'Raspberry Tools' }
 Integer >> bitClear: aMask [
 
 	"Answer an Integer equal to the receiver, except with all bits cleared that are set in aMask."

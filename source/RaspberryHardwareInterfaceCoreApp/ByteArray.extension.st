@@ -2,8 +2,7 @@ Extension {
 	#name : 'ByteArray'
 }
 
-{ #category : '*RaspberryHardwareInterfaceCoreApp',
- #vaCategories : ['Raspberry Tools'] }
+{ #category : 'Raspberry Tools' }
 ByteArray >> as2ByteArray [
 	"Answer just the first two bytes."
 	| bytes |

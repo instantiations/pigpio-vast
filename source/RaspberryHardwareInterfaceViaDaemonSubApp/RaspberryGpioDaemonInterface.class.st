@@ -1708,12 +1708,12 @@ RaspberryGpioDaemonInterface >> raspberryGpioDaemonVersion [
 { #category : 'Primitives' }
 RaspberryGpioDaemonInterface >> raspberryGpioErrorText: anInt [
 	"Answer the text description for the raspberryGpioError number."
+
 	| errorTextPtr errorText |
 
-	errorTextPtr := RaspberryGpioError callWith: anInt.
+	errorTextPtr := RaspberryGpioDaemonFunctions::RaspberryGpioError callWith: anInt.
 	errorText := (OSStringZ address: errorTextPtr) asString.
-	^errorText.
-
+	^errorText
 ]
 
 { #category : 'Primitives' }
