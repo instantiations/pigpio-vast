@@ -4,8 +4,7 @@ Class {
 	#category : 'RaspberryHardwareInterfaceTestApp'
 }
 
-{ #category : '-',
- #vaCategories : ['-','AbtEdit','AutoGen'],
+{ #category : 'Testing',
   #vaVisibility : 'private' }
 RaspberryHardwareInterfaceTestApp class >> abtIsViewApplication [
 

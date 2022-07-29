@@ -68,7 +68,8 @@ SpiDeviceMCP23S17 >> pinRead: num [
 
 ]
 
-{ #category : 'private' }
+{ #category : 'private',
+  #vaVisibility : 'private' }
 SpiDeviceMCP23S17 >> readByteFromDev: devId reg: reg port: port [
 	| buff |
 
@@ -160,7 +161,8 @@ SpiDeviceMCP23S17 >> spiBus: anSpiBus [
 
 ]
 
-{ #category : 'private' }
+{ #category : 'private',
+  #vaVisibility : 'private' }
 SpiDeviceMCP23S17 >> writeByte: byte toDev: devId reg: reg port: port [
 	| buff |
 

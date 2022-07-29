@@ -2,8 +2,7 @@ Extension {
 	#name : 'Magnitude'
 }
 
-{ #category : '*RaspberryHardwareInterfaceCoreApp',
- #vaCategories : ['Not categorized'] }
+{ #category : 'Not categorized' }
 Magnitude >> min: aMin max: aMax [
 
 
