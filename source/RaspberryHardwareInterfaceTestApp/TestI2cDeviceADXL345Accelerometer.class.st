@@ -10,6 +10,8 @@ Class {
 
 { #category : 'Examples' }
 TestI2cDeviceADXL345Accelerometer class >> printCoordinatesFor: seconds on: aStream [
+	"The following source failed to compile (all double quotes have been doubled):"
+"
 
 	| gpioInterface device |
 
@@ -30,7 +32,10 @@ TestI2cDeviceADXL345Accelerometer class >> printCoordinatesFor: seconds on: aStr
 				show: ', Z=' , coordinates third asString;
 				cr.
 			(Delay forSeconds: 1) wait]]
-				ensure: [gpioInterface shutDown]
+				ensure: [gpioInterface shutDown]"
+#tonelCompilationFailure.
+
+^ self halt: 'The source for this method failed to compile' 
 ]
 
 { #category : 'Examples' }
@@ -51,7 +56,8 @@ TestI2cDeviceADXL345Accelerometer >> createI2cDevice [
 { #category : 'Running' }
 TestI2cDeviceADXL345Accelerometer >> setUp [
 
-	gpioInterface := RaspberryPigpioDaemonInterface raspberryPigpioStart
+	gpioInterface := RaspberryGpioDaemonInterface raspberryGpioStart
+
 ]
 
 { #category : 'Running' }

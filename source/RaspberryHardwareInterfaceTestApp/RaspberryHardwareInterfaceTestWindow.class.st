@@ -1557,13 +1557,12 @@ RaspberryHardwareInterfaceTestWindow >> abtBuildInternals [
 	self finalInitialize
 ]
 
-{ #category : 'Not categorized',
+{ #category : 'Operations',
   #vaVisibility : 'private' }
 RaspberryHardwareInterfaceTestWindow >> afterOpenSetUp [
 	"Setup some stuff."
 
-	gpioInterface := RaspberryPigpioInterface raspberryPigpioStart.
-
+	gpioInterface := RaspberryGpioInterface raspberryGpioStart.
 	2 to: 27 do: [:pn |
 		gpioInterface pinSetAsOutput: pn.
 		gpioInterface pin: pn write: 0].
@@ -1571,7 +1570,7 @@ RaspberryHardwareInterfaceTestWindow >> afterOpenSetUp [
 	self forkRandomPinSet
 ]
 
-{ #category : 'Not categorized',
+{ #category : 'Operations',
   #vaVisibility : 'private' }
 RaspberryHardwareInterfaceTestWindow >> finalInitialize [
 	"setup some stuff."
@@ -1595,7 +1594,7 @@ RaspberryHardwareInterfaceTestWindow >> finalInitialize [
 	(self subpartNamed: 'Info Multi-line Edit') object: self helpInfo
 ]
 
-{ #category : 'Not categorized',
+{ #category : 'Operations',
   #vaVisibility : 'private' }
 RaspberryHardwareInterfaceTestWindow >> forkPinTest [
 	"Fork a loop to test pins and set their corresponding button icon."
@@ -1617,7 +1616,7 @@ RaspberryHardwareInterfaceTestWindow >> forkPinTest [
 				fork
 ]
 
-{ #category : 'Not categorized',
+{ #category : 'Operations',
   #vaVisibility : 'private' }
 RaspberryHardwareInterfaceTestWindow >> forkRandomPinSet [
 	"Fork a loop to randomly set pins on (20%) or off (80%)."
@@ -1633,7 +1632,7 @@ RaspberryHardwareInterfaceTestWindow >> forkRandomPinSet [
 				fork
 ]
 
-{ #category : 'Not categorized',
+{ #category : 'Help',
   #vaVisibility : 'private' }
 RaspberryHardwareInterfaceTestWindow >> helpInfo [
 	"Information about this program."
@@ -1677,7 +1676,7 @@ RaspberryHardwareInterfaceTestWindow >> helpInfo [
 	^infoStream contents
 ]
 
-{ #category : 'Not categorized',
+{ #category : 'Operations',
   #vaVisibility : 'private' }
 RaspberryHardwareInterfaceTestWindow >> terminate [
 	"Terminate Library."
@@ -1685,7 +1684,7 @@ RaspberryHardwareInterfaceTestWindow >> terminate [
 	gpioInterface terminateLibrary
 ]
 
-{ #category : 'Not categorized',
+{ #category : 'Operations',
   #vaVisibility : 'private' }
 RaspberryHardwareInterfaceTestWindow >> togglePinState: pin [
 	"switches the state of the given pin."

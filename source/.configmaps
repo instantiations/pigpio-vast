@@ -6,7 +6,7 @@
 				#requiredMaps : [
 					{
 						#name : 'ENVY/Image IPC ES-X/MOTIF',
-						#versionName : 'V 9.1.0  [409]',
+						#versionName : 'V 9.1.0  [453]',
 						#ts : 3706278039
 					}
 				]
@@ -18,8 +18,8 @@
 		#applications : OrderedCollection [
 			{
 				#name : 'RaspberryHardwareInterfaceCoreApp',
-				#versionName : '2.06',
-				#ts : 3836547463
+				#versionName : 'ddd1dbe-master',
+				#ts : 3836574764
 			}
 		],
 		#name : 'RaspberryHardwareInterfaceCore',
@@ -43,17 +43,17 @@
 				]
 			}
 		],
-		#ts : 3836549776,
+		#ts : 3836889758,
 		#comment : '',
 		#formatVersion : '1.1',
 		#applications : OrderedCollection [
 			{
 				#name : 'RaspberryHardwareInterfaceTestApp',
-				#versionName : '2.06',
-				#ts : 3836547967
+				#versionName : '1.07',
+				#ts : 3836888922
 			}
 		],
 		#name : 'RaspberryHardwareInterfaceTest',
-		#versionName : '2.06'
+		#versionName : '2.07'
 	}
 ]
