@@ -12,18 +12,18 @@
 				]
 			}
 		],
-		#ts : 3836547967,
+		#ts : 3836891538,
 		#comment : '',
 		#formatVersion : '1.1',
 		#applications : OrderedCollection [
 			{
 				#name : 'RaspberryHardwareInterfaceCoreApp',
 				#versionName : 'ddd1dbe-master',
-				#ts : 3836574764
+				#ts : 3836889981
 			}
 		],
 		#name : 'RaspberryHardwareInterfaceCore',
-		#versionName : '2.06'
+		#versionName : '2.08'
 	},
 	{
 		#conditions : [
@@ -37,23 +37,23 @@
 					},
 					{
 						#name : 'RaspberryHardwareInterfaceCore',
-						#versionName : '2.06',
-						#ts : 3836547967
+						#versionName : '2.08',
+						#ts : 3836891538
 					}
 				]
 			}
 		],
-		#ts : 3836889758,
+		#ts : 3836891534,
 		#comment : '',
 		#formatVersion : '1.1',
 		#applications : OrderedCollection [
 			{
 				#name : 'RaspberryHardwareInterfaceTestApp',
-				#versionName : '1.07',
-				#ts : 3836888922
+				#versionName : '1.08',
+				#ts : 3836891478
 			}
 		],
 		#name : 'RaspberryHardwareInterfaceTest',
-		#versionName : '2.07'
+		#versionName : '2.08'
 	}
 ]
