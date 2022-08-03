@@ -10,7 +10,7 @@ Class {
 
 { #category : 'Not categorized' }
 RaspberryGpioErrorException class >> errorDescription: anErrorCode [
-	"Answers a constant string with a short description of the given error code, 
+"Answers a constant string with a short description of the given error code, 
 		this description is intended for displaying to the end user.
 
 		Arguments:
@@ -29,7 +29,7 @@ RaspberryGpioErrorException class >> errorDescription: anErrorCode [
 
 { #category : 'Not categorized' }
 RaspberryGpioErrorException >> errorContext [
-	"Answer the RaspberryGpio error context description...if present
+"Answer the RaspberryGpio error context description...if present
 		This allows the user to quickly understand what caused
 		this exception.
 	 
@@ -42,7 +42,7 @@ RaspberryGpioErrorException >> errorContext [
 
 { #category : 'Not categorized' }
 RaspberryGpioErrorException >> errorDescription [
-	"Answer the error description <String> for this error number."
+"Answer the error description <String> for this error number."
 	
 	^self class errorDescription: self errorNumber.
 
@@ -50,7 +50,7 @@ RaspberryGpioErrorException >> errorDescription [
 
 { #category : 'Not categorized' }
 RaspberryGpioErrorException >> errorNumber [
-	"Answer the RaspberryGpio error number which should be the key if the
+"Answer the RaspberryGpio error number which should be the key if the
 		tag is an Association...otherwise the tag IS the errorNumber.
 
 	 Answers:
@@ -62,7 +62,7 @@ RaspberryGpioErrorException >> errorNumber [
 
 { #category : 'Not categorized' }
 RaspberryGpioErrorException >> messageText [
-	"Answer the human readable error description provided by RaspberryGpio
+"Answer the human readable error description provided by RaspberryGpio
 	 with the associated context in which the exception was produced.
 	 
 	 Answers:

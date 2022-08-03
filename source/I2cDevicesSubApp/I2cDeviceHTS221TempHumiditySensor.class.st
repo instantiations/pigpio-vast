@@ -17,7 +17,7 @@ Class {
 
 { #category : 'initialize-release' }
 I2cDeviceHTS221TempHumiditySensor >> calibrateSensors [
-	"slightly involved calibration dance"
+"slightly involved calibration dance"
 	| a b t0 t1 t0out t1out h0 h1 h0out h1out |
 
 	a := bus register: T1T0MSBRegister.
@@ -44,7 +44,7 @@ I2cDeviceHTS221TempHumiditySensor >> calibrateSensors [
 
 { #category : 'initialize-release' }
 I2cDeviceHTS221TempHumiditySensor >> initializeRegisters [
-	"check the whoAmI value"
+"check the whoAmI value"
 
 	bus whoAmI = self whoAmI
 		ifTrue: ["power up, set data rate"
@@ -56,7 +56,7 @@ I2cDeviceHTS221TempHumiditySensor >> initializeRegisters [
 
 { #category : 'initialize-release' }
 I2cDeviceHTS221TempHumiditySensor >> readHumidity [
-	"check the status and return the latest reading"
+"check the status and return the latest reading"
 	| t |
 
 	^((bus register: StatusRegister) anyMask: 2)
@@ -67,7 +67,7 @@ I2cDeviceHTS221TempHumiditySensor >> readHumidity [
 
 { #category : 'initialize-release' }
 I2cDeviceHTS221TempHumiditySensor >> readTemp [
-	"check the status and return the latest reading"
+"check the status and return the latest reading"
 	| t |
 
 	^((bus register: StatusRegister) anyMask: 1)
@@ -78,6 +78,6 @@ I2cDeviceHTS221TempHumiditySensor >> readTemp [
 
 { #category : 'initialize-release' }
 I2cDeviceHTS221TempHumiditySensor >> whoAmI [
-	"what is the ID byte value for one of me"
+"what is the ID byte value for one of me"
 	^16rBC "per the STI data sheet"
 ]

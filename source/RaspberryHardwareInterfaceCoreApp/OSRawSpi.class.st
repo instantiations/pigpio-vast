@@ -6,7 +6,7 @@ Class {
 
 { #category : 'Not categorized' }
 OSRawSpi class >> clk: clk mosi: mosi miso: miso ssPol: ssPol ssUs: ssUs clkPol: clkPol clkPha: clkPha clkUs: clkUs [
-	"Create a new instance and set the values."
+"Create a new instance and set the values."
 
 	^self new clk: clk; mosi: mosi; miso: miso; ssPol: ssPol; ssUs: ssUs; clkPol: clkPol; clkPha: clkPha; clkUs: clkUs; yourself.
 
@@ -15,7 +15,7 @@ OSRawSpi class >> clk: clk mosi: mosi miso: miso ssPol: ssPol ssUs: ssUs clkPol:
 { #category : 'Not categorized',
   #vaVisibility : 'private' }
 OSRawSpi class >> initializeAfterLoad [
-	"Initialize our size and members."
+"Initialize our size and members."
 
 	self
 		members: #(clk mosi miso ssPol ssUs clkPol clkPha clkUs)
@@ -25,7 +25,7 @@ OSRawSpi class >> initializeAfterLoad [
 
 { #category : 'Not categorized' }
 OSRawSpi >> clk [
-	"Answer the value of clk."
+"Answer the value of clk."
 
 	^self int32At: #clk.
 
@@ -33,7 +33,7 @@ OSRawSpi >> clk [
 
 { #category : 'Not categorized' }
 OSRawSpi >> clk: anInt [
-	"Set the value of clk."
+"Set the value of clk."
 
 	^self int32At: #clk put: anInt.
 
@@ -41,7 +41,7 @@ OSRawSpi >> clk: anInt [
 
 { #category : 'Not categorized' }
 OSRawSpi >> clkPha [
-	"Answer the value of clkPha."
+"Answer the value of clkPha."
 
 	^self int32At: #clkPha.
 
@@ -49,7 +49,7 @@ OSRawSpi >> clkPha [
 
 { #category : 'Not categorized' }
 OSRawSpi >> clkPha: anInt [
-	"Set the value of clkPha."
+"Set the value of clkPha."
 
 	^self int32At: #clkPha put: anInt.
 
@@ -57,7 +57,7 @@ OSRawSpi >> clkPha: anInt [
 
 { #category : 'Not categorized' }
 OSRawSpi >> clkPol [
-	"Answer the value of clkPol."
+"Answer the value of clkPol."
 
 	^self int32At: #clkPol.
 
@@ -65,7 +65,7 @@ OSRawSpi >> clkPol [
 
 { #category : 'Not categorized' }
 OSRawSpi >> clkPol: anInt [
-	"Set the value of clkPol."
+"Set the value of clkPol."
 
 	^self int32At: #clkPol put: anInt.
 
@@ -73,7 +73,7 @@ OSRawSpi >> clkPol: anInt [
 
 { #category : 'Not categorized' }
 OSRawSpi >> clkUs [
-	"Answer the value of clkUs."
+"Answer the value of clkUs."
 
 	^self int32At: #clkUs.
 
@@ -81,7 +81,7 @@ OSRawSpi >> clkUs [
 
 { #category : 'Not categorized' }
 OSRawSpi >> clkUs: anInt [
-	"Set the value of clkUs."
+"Set the value of clkUs."
 
 	^self int32At: #clkUs put: anInt.
 
@@ -89,7 +89,7 @@ OSRawSpi >> clkUs: anInt [
 
 { #category : 'Not categorized' }
 OSRawSpi >> miso [
-	"Answer the value of miso."
+"Answer the value of miso."
 
 	^self int32At: #miso.
 
@@ -97,7 +97,7 @@ OSRawSpi >> miso [
 
 { #category : 'Not categorized' }
 OSRawSpi >> miso: anInt [
-	"Set the value of miso."
+"Set the value of miso."
 
 	^self int32At: #miso put: anInt.
 
@@ -105,7 +105,7 @@ OSRawSpi >> miso: anInt [
 
 { #category : 'Not categorized' }
 OSRawSpi >> mosi [
-	"Answer the value of mosi."
+"Answer the value of mosi."
 
 	^self int32At: #mosi.
 
@@ -113,7 +113,7 @@ OSRawSpi >> mosi [
 
 { #category : 'Not categorized' }
 OSRawSpi >> mosi: anInt [
-	"Set the value of mosi."
+"Set the value of mosi."
 
 	^self int32At: #mosi put: anInt.
 
@@ -121,7 +121,7 @@ OSRawSpi >> mosi: anInt [
 
 { #category : 'Not categorized' }
 OSRawSpi >> ssPol [
-	"Answer the value of ssPol."
+"Answer the value of ssPol."
 
 	^self int32At: #ssPol.
 
@@ -129,7 +129,7 @@ OSRawSpi >> ssPol [
 
 { #category : 'Not categorized' }
 OSRawSpi >> ssPol: anInt [
-	"Set the value of ssPol."
+"Set the value of ssPol."
 
 	^self int32At: #ssPol put: anInt.
 
@@ -137,7 +137,7 @@ OSRawSpi >> ssPol: anInt [
 
 { #category : 'Not categorized' }
 OSRawSpi >> ssUs [
-	"Answer the value of ssUs."
+"Answer the value of ssUs."
 
 	^self int32At: #ssUs.
 
@@ -145,7 +145,7 @@ OSRawSpi >> ssUs [
 
 { #category : 'Not categorized' }
 OSRawSpi >> ssUs: anInt [
-	"Set the value of ssUs."
+"Set the value of ssUs."
 
 	^self int32At: #ssUs put: anInt.
 

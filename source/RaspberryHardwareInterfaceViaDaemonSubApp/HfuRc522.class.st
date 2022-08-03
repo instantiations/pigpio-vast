@@ -118,7 +118,7 @@ Class {
 
 { #category : 'Not categorized' }
 HfuRc522 >> antennaOff [
-	"Turns the RFID antenna off"
+"Turns the RFID antenna off"
 	| temporaries |
 	
 	self clearBitMask: TxControlReg mask: 16r03.
@@ -126,7 +126,7 @@ HfuRc522 >> antennaOff [
 
 { #category : 'Not categorized' }
 HfuRc522 >> antennaOn [
-	"Turns the RFID antenna on"
+"Turns the RFID antenna on"
 	| temporaries |
 	
 	temporaries := (self readFromModule: TxControlReg).
@@ -137,7 +137,7 @@ HfuRc522 >> antennaOn [
 
 { #category : 'Not categorized' }
 HfuRc522 >> antiCollision [
-	"Anti Collision"
+"Anti Collision"
 	| theBackData theStatus theSerialNumberCheck theSerialNumber theResultFromCard theIterator theResult |
 	
 	theBackData := OrderedCollection new.
@@ -179,7 +179,7 @@ HfuRc522 >> antiCollision [
 
 { #category : 'Not categorized' }
 HfuRc522 >> authentication: aMode blockAddress: aBLockAdress sectorKey: aKey serialNumber: aSerialNumber [
-	"Authentication"
+"Authentication"
 	| theBuffer theIterator theStatus |
 
 	theBuffer := OrderedCollection new.
@@ -211,7 +211,7 @@ HfuRc522 >> authentication: aMode blockAddress: aBLockAdress sectorKey: aKey ser
 
 { #category : 'Not categorized' }
 HfuRc522 >> calculateCRC: aInData [
-	"Calculates a CRC"
+"Calculates a CRC"
 	| theIterator theOutData theReadResult |
 	
 	theOutData := OrderedCollection new.
@@ -238,7 +238,7 @@ HfuRc522 >> calculateCRC: aInData [
 
 { #category : 'Not categorized' }
 HfuRc522 >> clearBitMask: aRegister mask: aMask [
-	"clears a BitMask from a adress"
+"clears a BitMask from a adress"
 	| temporaries |
 	temporaries := self readFromModule: aRegister.
 	self writeToModule: aRegister value: (temporaries bitAnd: (aMask bitInvert)).
@@ -246,14 +246,14 @@ HfuRc522 >> clearBitMask: aRegister mask: aMask [
 
 { #category : 'Not categorized' }
 HfuRc522 >> close [
-	"Sends closes the connection to the reader"
+"Sends closes the connection to the reader"
 	| temporaries |
 	
 ]
 
 { #category : 'Not categorized' }
 HfuRc522 >> commandToCard: aCommand data: aData [
-	"Sends command and data to a card"
+"Sends command and data to a card"
 	| theResult theBackData theBackLen theStatus theIrqEn theWaitIrq theLastBits theTries theReadResult theDelay |
 	
 	theResult := Dictionary new.
@@ -353,18 +353,18 @@ HfuRc522 >> commandToCard: aCommand data: aData [
 
 { #category : 'Not categorized' }
 HfuRc522 >> dumpClassic: key uId: aId [
-	"Prints all data from a classic 1K"
+"Prints all data from a classic 1K"
 	| temporaries |
 ]
 
 { #category : 'Not categorized' }
 HfuRc522 >> isUndefined [
-	^false
+^false
 ]
 
 { #category : 'Not categorized' }
 HfuRc522 >> moduleInit [
-	"Starts the Module"
+"Starts the Module"
 	| temporaries |
 	
 	self reset.
@@ -382,7 +382,7 @@ HfuRc522 >> moduleInit [
 
 { #category : 'Not categorized' }
 HfuRc522 >> readFromCard: aBlockAdress [
-	"Reads from cards Block Adress"
+"Reads from cards Block Adress"
 	| theBuffer theOut theResult theStatus theBackData |
 	
 	theBuffer := OrderedCollection new.
@@ -405,14 +405,14 @@ HfuRc522 >> readFromCard: aBlockAdress [
 
 { #category : 'Not categorized' }
 HfuRc522 >> readFromModule: anAdress [
-	"Reads data from the Modul"
+"Reads data from the Modul"
 	^(bus readBytesUsingBuffer: (ByteArray with: (((anAdress bitShift: 1) bitAnd: 16r7E) bitOr: 16r80) with: 0)) at: 2.
 	
 ]
 
 { #category : 'Not categorized' }
 HfuRc522 >> request: aRequestMode [
-	"Sends a request"
+"Sends a request"
 	| theStatus theBackBits theTagType theResultFromCard theResult |
 	
 	theStatus := 0.
@@ -444,7 +444,7 @@ HfuRc522 >> request: aRequestMode [
 
 { #category : 'Not categorized' }
 HfuRc522 >> reset [
-	"Send a Reset Command to the Reader"
+"Send a Reset Command to the Reader"
 	| temporaries |
 	
 	self writeToModule: CommandReg value: PCD_RESETPHASE.
@@ -452,7 +452,7 @@ HfuRc522 >> reset [
 
 { #category : 'Not categorized' }
 HfuRc522 >> selectTag: aSerialnumber [
-	"Selects a tag"
+"Selects a tag"
 	| theBuffer theResultFromCard theIterator theOut |
 	
 	theBuffer := OrderedCollection new.
@@ -482,7 +482,7 @@ HfuRc522 >> selectTag: aSerialnumber [
 
 { #category : 'Not categorized' }
 HfuRc522 >> setBitMask: aRegister mask: aMask [
-	"Sends a BitMask to an adress"
+"Sends a BitMask to an adress"
 	| temporaries |
 	temporaries := self readFromModule: aRegister.
 	self writeToModule: aRegister value: (temporaries bitOr: aMask).
@@ -490,7 +490,7 @@ HfuRc522 >> setBitMask: aRegister mask: aMask [
 
 { #category : 'Not categorized' }
 HfuRc522 >> spiBus: anSpiBus [
-	| buff |
+| buff |
 	
 	bus := anSpiBus.
 	
@@ -594,7 +594,7 @@ HfuRc522 >> spiBus: anSpiBus [
 
 { #category : 'Not categorized' }
 HfuRc522 >> stopCrypto [
-	"Stops Crypto 1"
+"Stops Crypto 1"
 	| temporaries |
 	
 	self clearBitMask: Status2Reg mask: 16r08.
@@ -602,7 +602,7 @@ HfuRc522 >> stopCrypto [
 
 { #category : 'Not categorized' }
 HfuRc522 >> writeToCard: anAdress data: aData [
-	"Writes Data To Card"
+"Writes Data To Card"
 	| theBuffer theRedundancyCheck theCommandResult theStatus theBackLen theBackData |
 	
 	theBuffer := OrderedCollection new.
@@ -648,7 +648,7 @@ HfuRc522 >> writeToCard: anAdress data: aData [
 
 { #category : 'Not categorized' }
 HfuRc522 >> writeToModule: anAdress value: anValue [
-	"Sends data to the Reader"
+"Sends data to the Reader"
 	| temporaries |
 	bus readBytesUsingBuffer: (ByteArray with: ((anAdress bitShift: 1) bitAnd: 16r7E) with: anValue)
 	

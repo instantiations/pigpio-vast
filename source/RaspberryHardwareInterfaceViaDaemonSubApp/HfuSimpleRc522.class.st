@@ -30,31 +30,27 @@ Class {
 
 { #category : 'Not categorized' }
 HfuSimpleRc522 class >> blockAdresses [
-
 	^BlockAdresses
 ]
 
 { #category : 'Not categorized' }
 HfuSimpleRc522 class >> blockAdresses: anObject [
-
 	BlockAdresses := anObject
 ]
 
 { #category : 'Not categorized' }
 HfuSimpleRc522 class >> rfidKey [
-
 	^RfidKey
 ]
 
 { #category : 'Not categorized' }
 HfuSimpleRc522 class >> rfidKey: anObject [
-
 	RfidKey := anObject
 ]
 
 { #category : 'Not categorized' }
 HfuSimpleRc522 >> readCardAsOrderedList [
-	| theUid |
+| theUid |
 	"Returns the content of the RFID-Chip as a OrderedList. This function will wait until a card is hold on to the reader."
 	theUid := self readCardSerialNumber.
 	((theUid size) <= 4)
@@ -67,7 +63,7 @@ HfuSimpleRc522 >> readCardAsOrderedList [
 
 { #category : 'Not categorized' }
 HfuSimpleRc522 >> readCardAsOrderedList: aSerialNumber [
-	"Returns the content of the RFID-Chip as a OrderedList. This function will wait until a card is hold on to the reader."
+"Returns the content of the RFID-Chip as a OrderedList. This function will wait until a card is hold on to the reader."
 	| theSelectResult theAuthStatus theData theResult |
 	
 	theResult := nil.
@@ -99,7 +95,7 @@ HfuSimpleRc522 >> readCardAsOrderedList: aSerialNumber [
 
 { #category : 'Not categorized' }
 HfuSimpleRc522 >> readCardAsString [
-	"Returns the content of the RFID-Chip as a string. This function will wait until a card is hold on to the reader."
+"Returns the content of the RFID-Chip as a string. This function will wait until a card is hold on to the reader."
 	| theData theResult |
 	
 	theData := self readCardAsOrderedList.
@@ -118,7 +114,7 @@ HfuSimpleRc522 >> readCardAsString [
 
 { #category : 'Not categorized' }
 HfuSimpleRc522 >> readCardAsUserID [
-	"Returns the User ID which is read from the RFID-Chip. This function will wait until a card is hold on to the reader."
+"Returns the User ID which is read from the RFID-Chip. This function will wait until a card is hold on to the reader."
 	
 	^((self readCardAsString) asNumber).
 	
@@ -127,7 +123,7 @@ HfuSimpleRc522 >> readCardAsUserID [
 
 { #category : 'Not categorized' }
 HfuSimpleRc522 >> readCardSerialNumber [
-	"Returns the Serialnumber of the RFID-Chip as a OrderedList. This function will wait until a card is hold on to the reader."
+"Returns the Serialnumber of the RFID-Chip as a OrderedList. This function will wait until a card is hold on to the reader."
 	| theRequestResult theAntiCollResult |
 	
 	[true] whileTrue: [
@@ -144,7 +140,7 @@ HfuSimpleRc522 >> readCardSerialNumber [
 
 { #category : 'Not categorized' }
 HfuSimpleRc522 >> spiBus: anSpiBus [
-	
+
 	super spiBus: anSpiBus.
 	
 	RfidKey := OrderedCollection  new.
@@ -163,7 +159,7 @@ HfuSimpleRc522 >> spiBus: anSpiBus [
 
 { #category : 'Not categorized' }
 HfuSimpleRc522 >> writeStringToCard: aString [
-	| theUid |
+| theUid |
 	
 	theUid := self readCardSerialNumber.
 	((theUid size) <= 4)
@@ -180,7 +176,7 @@ HfuSimpleRc522 >> writeStringToCard: aString [
 
 { #category : 'Not categorized' }
 HfuSimpleRc522 >> writeStringToCard: aString serialNumber: aSerialNumber [
-	| theSelectResult theAuthStatus theOutData theTempData theResult theIterator theSecondIterator |
+| theSelectResult theAuthStatus theOutData theTempData theResult theIterator theSecondIterator |
 	
 	theResult := false.
 	

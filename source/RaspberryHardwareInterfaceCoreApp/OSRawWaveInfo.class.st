@@ -6,7 +6,7 @@ Class {
 
 { #category : 'Not categorized' }
 OSRawWaveInfo class >> botCB: botCB topCB: topCB botOOL: botOOL topOOL: topOOL deleted: deleted numCB: numCB numBOOL: numBOOL numTOOL: numTOOL [
-	"Create a new instance and set the values."
+"Create a new instance and set the values."
 
 	^self new botCB: botCB; topCB: topCB; botOOL: botOOL; topOOL: topOOL;
 		deleted: deleted; numCB: numCB; numBOOL: numBOOL; numTOOL: numTOOL; yourself.
@@ -16,7 +16,7 @@ OSRawWaveInfo class >> botCB: botCB topCB: topCB botOOL: botOOL topOOL: topOOL d
 { #category : 'Not categorized',
   #vaVisibility : 'private' }
 OSRawWaveInfo class >> initializeAfterLoad [
-	"Initialize our size and members."
+"Initialize our size and members."
 
 	self
 		members: #(botCB topCB botOOL topOLL deleted numCB numBOOL numTOOL)
@@ -26,7 +26,7 @@ OSRawWaveInfo class >> initializeAfterLoad [
 
 { #category : 'Not categorized' }
 OSRawWaveInfo >> botCB [
-	"Answer the value of botCB."
+"Answer the value of botCB."
 
 	^self uint16At: #botCB.
 
@@ -34,7 +34,7 @@ OSRawWaveInfo >> botCB [
 
 { #category : 'Not categorized' }
 OSRawWaveInfo >> botCB: anInt [
-	"Set the value of botCB."
+"Set the value of botCB."
 
 	self uint16At: #botCB put: anInt.
 
@@ -42,7 +42,7 @@ OSRawWaveInfo >> botCB: anInt [
 
 { #category : 'Not categorized' }
 OSRawWaveInfo >> botOOL [
-	"Answer the value of botOOL."
+"Answer the value of botOOL."
 
 	^self uint16At: #botOOL.
 
@@ -50,7 +50,7 @@ OSRawWaveInfo >> botOOL [
 
 { #category : 'Not categorized' }
 OSRawWaveInfo >> botOOL: anInt [
-	"Set the value of botOOL."
+"Set the value of botOOL."
 
 	self uint16At: #botOOL put: anInt.
 
@@ -58,7 +58,7 @@ OSRawWaveInfo >> botOOL: anInt [
 
 { #category : 'Not categorized' }
 OSRawWaveInfo >> deleted [
-	"Answer the value of deleted."
+"Answer the value of deleted."
 
 	^self uint16At: #deleted.
 
@@ -66,7 +66,7 @@ OSRawWaveInfo >> deleted [
 
 { #category : 'Not categorized' }
 OSRawWaveInfo >> deleted: anInt [
-	"Set the value of deleted."
+"Set the value of deleted."
 
 	self uint16At: #deleted put: anInt.
 
@@ -74,7 +74,7 @@ OSRawWaveInfo >> deleted: anInt [
 
 { #category : 'Not categorized' }
 OSRawWaveInfo >> numBOOL [
-	"Answer the value of numBOOL."
+"Answer the value of numBOOL."
 
 	^self uint16At: #numBOOL.
 
@@ -82,7 +82,7 @@ OSRawWaveInfo >> numBOOL [
 
 { #category : 'Not categorized' }
 OSRawWaveInfo >> numBOOL: anInt [
-	"Set the value of numBOOL."
+"Set the value of numBOOL."
 
 	self uint16At: #numBOOL put: anInt.
 
@@ -90,7 +90,7 @@ OSRawWaveInfo >> numBOOL: anInt [
 
 { #category : 'Not categorized' }
 OSRawWaveInfo >> numCB [
-	"Answer the value of numCB."
+"Answer the value of numCB."
 
 	^self uint16At: #numCB.
 
@@ -98,7 +98,7 @@ OSRawWaveInfo >> numCB [
 
 { #category : 'Not categorized' }
 OSRawWaveInfo >> numCB: anInt [
-	"Set the value of numCB."
+"Set the value of numCB."
 
 	self uint16At: #numCB put: anInt.
 
@@ -106,7 +106,7 @@ OSRawWaveInfo >> numCB: anInt [
 
 { #category : 'Not categorized' }
 OSRawWaveInfo >> numTOOL [
-	"Answer the value of numTOOL."
+"Answer the value of numTOOL."
 
 	^self uint16At: #numTOOL.
 
@@ -114,7 +114,7 @@ OSRawWaveInfo >> numTOOL [
 
 { #category : 'Not categorized' }
 OSRawWaveInfo >> numTOOL: anInt [
-	"Set the value of numTOOL."
+"Set the value of numTOOL."
 
 	self uint16At: #numTOOL put: anInt.
 
@@ -122,7 +122,7 @@ OSRawWaveInfo >> numTOOL: anInt [
 
 { #category : 'Not categorized' }
 OSRawWaveInfo >> topCB [
-	"Answer the value of topCB."
+"Answer the value of topCB."
 
 	^self uint16At: #topCB.
 
@@ -130,7 +130,7 @@ OSRawWaveInfo >> topCB [
 
 { #category : 'Not categorized' }
 OSRawWaveInfo >> topCB: anInt [
-	"Set the value of topCB."
+"Set the value of topCB."
 
 	self uint16At: #topCB put: anInt.
 
@@ -138,7 +138,7 @@ OSRawWaveInfo >> topCB: anInt [
 
 { #category : 'Not categorized' }
 OSRawWaveInfo >> topOOL [
-	"Answer the value of topOOL."
+"Answer the value of topOOL."
 
 	^self uint16At: #topOOL.
 
@@ -146,7 +146,7 @@ OSRawWaveInfo >> topOOL [
 
 { #category : 'Not categorized' }
 OSRawWaveInfo >> topOOL: anInt [
-	"Set the value of topOOL."
+"Set the value of topOOL."
 
 	self uint16At: #topOOL put: anInt.
 

@@ -25,7 +25,7 @@ Class {
 
 { #category : 'queries' }
 OneWireDevice class >> baseDirectory [
-	"Answer the base directory for 1wire devices within the linux framework."
+"Answer the base directory for 1wire devices within the linux framework."
 
 	^BaseDirectory.
 
@@ -33,7 +33,7 @@ OneWireDevice class >> baseDirectory [
 
 { #category : 'Not categorized' }
 OneWireDevice class >> baseDirectory: aStringPath [
-	"Set the base directory for 1wire devices within the linux framework."
+"Set the base directory for 1wire devices within the linux framework."
 
 	BaseDirectory := aStringPath.
 
@@ -41,7 +41,7 @@ OneWireDevice class >> baseDirectory: aStringPath [
 
 { #category : 'queries' }
 OneWireDevice class >> concreteClassForFamilyType: familyTypeString [
-	"see if any of my subclasses handle the family type specified"
+"see if any of my subclasses handle the family type specified"
 
 	self withAllSubclassesDo: [:cl |
 		(cl familyTypeString = familyTypeString) ifTrue: [^cl].
@@ -52,7 +52,7 @@ OneWireDevice class >> concreteClassForFamilyType: familyTypeString [
 
 { #category : 'Not categorized' }
 OneWireDevice class >> deviceDirectoryNamesMatching: pattern [
-	"Answer a list of directory device names matching the pattern."
+"Answer a list of directory device names matching the pattern."
 	| fd |
 
 	fd := OrderedCollection new.
@@ -63,13 +63,13 @@ OneWireDevice class >> deviceDirectoryNamesMatching: pattern [
 
 { #category : 'queries' }
 OneWireDevice class >> familyType [
-	"I'm the abstract class, so use 0"
+"I'm the abstract class, so use 0"
 		^0
 ]
 
 { #category : 'queries' }
 OneWireDevice class >> familyTypeString [
-	"return the family type code as a hex string"
+"return the family type code as a hex string"
 
 	^self familyType printStringRadix: 16 showRadix: false.
 
@@ -77,7 +77,7 @@ OneWireDevice class >> familyTypeString [
 
 { #category : 'instance creation' }
 OneWireDevice class >> idString: aString [
-	"Create a new device to represent aString. Normally this should be a name reported by #listDevices etc.
+"Create a new device to represent aString. Normally this should be a name reported by #listDevices etc.
 		Check for the family type being at the front; if it is, we pass it around subclasses to find one that supports the type."
 
 	aString size = 15 ifTrue: [
@@ -95,7 +95,7 @@ OneWireDevice class >> idString: aString [
 
 { #category : 'Not categorized' }
 OneWireDevice class >> initializeOnLoad [
-	"Initialize On Load."
+"Initialize On Load."
 
 	BaseDirectory := '/sys/bus/w1/devices'.
 
@@ -103,7 +103,7 @@ OneWireDevice class >> initializeOnLoad [
 
 { #category : 'queries' }
 OneWireDevice class >> listDevices [
-	"Answer a collection of discovered 1wire device directories matching my family code.
+"Answer a collection of discovered 1wire device directories matching my family code.
 		OneWireDS18B20ThermometerDevice listDevices."
 
 	^self deviceDirectoryNamesMatching: self familyTypeString.
@@ -112,7 +112,7 @@ OneWireDevice class >> listDevices [
 
 { #category : 'queries' }
 OneWireDevice class >> listDevicesOfType: deviceFamilyCode [
-	"Answer a collection of discovered 1wire device directories matching the family code."
+"Answer a collection of discovered 1wire device directories matching the family code."
 	"OneWireDevice listDevicesOfType: 16r28."
 
 	^self deviceDirectoryNamesMatching: (deviceFamilyCode printStringRadix: 16 showRadix: false).
@@ -121,7 +121,7 @@ OneWireDevice class >> listDevicesOfType: deviceFamilyCode [
 
 { #category : 'initialize-release' }
 OneWireDevice >> idString: aTwelveHexDigitString [
-	"Set my devId and derive my file path."
+"Set my devId and derive my file path."
 
 	devId := aTwelveHexDigitString.
 	devFilePath := (self class baseDirectory), '/', (self class familyTypeString, '-', devId), '/w1_slave'.

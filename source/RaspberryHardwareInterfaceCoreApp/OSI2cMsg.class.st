@@ -6,7 +6,7 @@ Class {
 
 { #category : 'Not categorized' }
 OSI2cMsg class >> addr: addr flags: flags len: len buf: buf [
-	"Create a new instance and set the values."
+"Create a new instance and set the values."
 
 	^self new addr: addr; flags: flags; len: len; buf: buf; yourself.
 
@@ -14,7 +14,7 @@ OSI2cMsg class >> addr: addr flags: flags len: len buf: buf [
 
 { #category : 'Not categorized' }
 OSI2cMsg class >> fromArray: anArray [
-	"Create a new instance and set the values.  If there is more than one message, answer an array with the messages."
+"Create a new instance and set the values.  If there is more than one message, answer an array with the messages."
 	| messageCnt messages aCnt |
 
 	aCnt := anArray size.
@@ -38,7 +38,7 @@ OSI2cMsg class >> fromArray: anArray [
 { #category : 'Not categorized',
   #vaVisibility : 'private' }
 OSI2cMsg class >> initializeAfterLoad [
-	"Initialize our size and members."
+"Initialize our size and members."
 
 	self
 		members: #(addr flags len buf)
@@ -48,7 +48,7 @@ OSI2cMsg class >> initializeAfterLoad [
 
 { #category : 'Not categorized' }
 OSI2cMsg >> addr [
-	"Answer the value of addr."
+"Answer the value of addr."
 
 	^self uint16At: #addr.
 
@@ -56,7 +56,7 @@ OSI2cMsg >> addr [
 
 { #category : 'Not categorized' }
 OSI2cMsg >> addr: anInt [
-	"Set the value of addr."
+"Set the value of addr."
 
 	self uint16At: #addr put: anInt.
 
@@ -64,7 +64,7 @@ OSI2cMsg >> addr: anInt [
 
 { #category : 'Not categorized' }
 OSI2cMsg >> buf [
-	"Answer the value of buf."
+"Answer the value of buf."
 
 	^self uint8At: #buf.
 
@@ -72,7 +72,7 @@ OSI2cMsg >> buf [
 
 { #category : 'Not categorized' }
 OSI2cMsg >> buf: anInt [
-	"Set the value of buf."
+"Set the value of buf."
 
 	self uint16At: #buf put: anInt.
 
@@ -80,7 +80,7 @@ OSI2cMsg >> buf: anInt [
 
 { #category : 'Not categorized' }
 OSI2cMsg >> flags [
-	"Answer the value of flags."
+"Answer the value of flags."
 
 	^self uint16At: #flags.
 
@@ -88,7 +88,7 @@ OSI2cMsg >> flags [
 
 { #category : 'Not categorized' }
 OSI2cMsg >> flags: anInt [
-	"Set the value of flags."
+"Set the value of flags."
 
 	self uint16At: #flags put: anInt.
 
@@ -96,7 +96,7 @@ OSI2cMsg >> flags: anInt [
 
 { #category : 'Not categorized' }
 OSI2cMsg >> len [
-	"Answer the value of len."
+"Answer the value of len."
 
 	^self uint16At: #len.
 
@@ -104,7 +104,7 @@ OSI2cMsg >> len [
 
 { #category : 'Not categorized' }
 OSI2cMsg >> len: anInt [
-	"Set the value of len."
+"Set the value of len."
 
 	self uint16At: #len put: anInt.
 

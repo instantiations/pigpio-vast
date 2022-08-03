@@ -6,7 +6,7 @@ Class {
 
 { #category : 'Not categorized' }
 OSGpioPulse class >> fromArray: anArray [
-	"Create a new instance and set the values.  If there is more than one pulse, answer an array with the pulses."
+"Create a new instance and set the values.  If there is more than one pulse, answer an array with the pulses."
 	| pulseCnt pulses aCnt |
 
 	aCnt := anArray size.
@@ -27,7 +27,7 @@ OSGpioPulse class >> fromArray: anArray [
 
 { #category : 'Not categorized' }
 OSGpioPulse class >> gpioOn: on gpioOff: off usDelay: delay [
-	"Create a new instance and set the values."
+"Create a new instance and set the values."
 
 	^self new gpioOn: on; gpioOff: off; usDelay: delay; yourself.
 
@@ -36,7 +36,7 @@ OSGpioPulse class >> gpioOn: on gpioOff: off usDelay: delay [
 { #category : 'Not categorized',
   #vaVisibility : 'private' }
 OSGpioPulse class >> initializeAfterLoad [
-	"Initialize our size and members."
+"Initialize our size and members."
 
 	self
 		members: #(gpioOn gpioOff usDelay)
@@ -46,7 +46,7 @@ OSGpioPulse class >> initializeAfterLoad [
 
 { #category : 'Not categorized' }
 OSGpioPulse >> gpioOff [
-	"Answer the value of gpioOff."
+"Answer the value of gpioOff."
 
 	^self uint32At: #gpioOff.
 
@@ -54,7 +54,7 @@ OSGpioPulse >> gpioOff [
 
 { #category : 'Not categorized' }
 OSGpioPulse >> gpioOff: anInt [
-	"Set the value of gpioOff."
+"Set the value of gpioOff."
 
 	^self uint32At: #gpioOff put: anInt.
 
@@ -62,7 +62,7 @@ OSGpioPulse >> gpioOff: anInt [
 
 { #category : 'Not categorized' }
 OSGpioPulse >> gpioOn [
-	"Answer the value of gpioOn."
+"Answer the value of gpioOn."
 
 	^self uint32At: #gpioOn.
 
@@ -70,7 +70,7 @@ OSGpioPulse >> gpioOn [
 
 { #category : 'Not categorized' }
 OSGpioPulse >> gpioOn: anInt [
-	"Set the value of gpioOn."
+"Set the value of gpioOn."
 
 	^self uint32At: #gpioOn put: anInt.
 
@@ -78,7 +78,7 @@ OSGpioPulse >> gpioOn: anInt [
 
 { #category : 'Not categorized' }
 OSGpioPulse >> usDelay [
-	"Answer the value of usDelay."
+"Answer the value of usDelay."
 
 	^self uint32At: #usDelay.
 
@@ -86,7 +86,7 @@ OSGpioPulse >> usDelay [
 
 { #category : 'Not categorized' }
 OSGpioPulse >> usDelay: anInt [
-	"Set the value of usDelay."
+"Set the value of usDelay."
 
 	^self uint32At: #usDelay put: anInt.
 

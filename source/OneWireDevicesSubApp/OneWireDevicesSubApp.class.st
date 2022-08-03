@@ -6,7 +6,7 @@ Class {
 
 { #category : 'Not categorized' }
 OneWireDevicesSubApp class >> loaded [
-	"Execute the code in the method comment to create and save the source for the method."
+"Execute the code in the method comment to create and save the source for the method."
 	"Initialize things just after being loaded."
 	"Initialize parts."
 

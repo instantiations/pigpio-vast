@@ -10,7 +10,7 @@ Class {
 
 { #category : 'Not categorized' }
 SpiDeviceMCP23S17 class >> defaultFlags [
-	"what should my configuration be? SPI flags occupy the bottom 22 bits of a word
+"what should my configuration be? SPI flags occupy the bottom 22 bits of a word
 	(21)bbbbbb R T nnnn W A u2 u1 u0 p2 p1 p0 mm
 	See the abyz.co.uk/rpi/pigpio/pdif2.html page for more detail"
 
@@ -20,7 +20,7 @@ SpiDeviceMCP23S17 class >> defaultFlags [
 
 { #category : 'Not categorized' }
 SpiDeviceMCP23S17 class >> defaultSpeed [
-	"What should my communications rate be?"
+"What should my communications rate be?"
 
 	^4000000.
 
@@ -28,7 +28,7 @@ SpiDeviceMCP23S17 class >> defaultSpeed [
 
 { #category : 'pin read/write' }
 SpiDeviceMCP23S17 >> pin: num write: value [
-	"write value to the pin"
+"write value to the pin"
 
 	| pin old bit |
 	pin := num.
@@ -52,7 +52,7 @@ SpiDeviceMCP23S17 >> pin: num write: value [
 
 { #category : 'pin read/write' }
 SpiDeviceMCP23S17 >> pinRead: num [
-	"read the pin"
+"read the pin"
 
 	| pin reg mask old |
 	pin := num.
@@ -71,7 +71,7 @@ SpiDeviceMCP23S17 >> pinRead: num [
 { #category : 'private',
   #vaVisibility : 'private' }
 SpiDeviceMCP23S17 >> readByteFromDev: devId reg: reg port: port [
-	| buff |
+| buff |
 
 	buff := ByteArray new: 3.
 	buff at: 1 put: (((devId bitAnd: 7)<<1 ) bitOr: SpiCmdRead).
@@ -83,7 +83,7 @@ SpiDeviceMCP23S17 >> readByteFromDev: devId reg: reg port: port [
 
 { #category : 'pin configuration' }
 SpiDeviceMCP23S17 >> setPin: num direction: inOut [
-	"set the pull up/down mode of the pin"
+"set the pull up/down mode of the pin"
 	| pin reg mask old |
 
 	pin := num.
@@ -104,14 +104,12 @@ SpiDeviceMCP23S17 >> setPin: num direction: inOut [
 
 { #category : 'pin configuration' }
 SpiDeviceMCP23S17 >> setPin: num inputWithPullUp: boolean [
-
 	"set the pin to input with pull up or not"
 	self setPin: num direction: GpioInput; setPin: num pull: GpioPudUp
 ]
 
 { #category : 'pin configuration' }
 SpiDeviceMCP23S17 >> setPin: num pull: pullUpDown [
-
 	"set the pull up/down mode of the pin"
 
 	| pin reg mask old |
@@ -133,13 +131,13 @@ SpiDeviceMCP23S17 >> setPin: num pull: pullUpDown [
 
 { #category : 'pin configuration' }
 SpiDeviceMCP23S17 >> setPinToOutput: num [
-	"set the pin to output "
+"set the pin to output "
 	self setPin: num direction: GpioOutput
 ]
 
 { #category : 'initialize-release' }
 SpiDeviceMCP23S17 >> spiBus: anSpiBus [
-	| buff |
+| buff |
 	
 	bus := anSpiBus.	
 
@@ -164,7 +162,7 @@ SpiDeviceMCP23S17 >> spiBus: anSpiBus [
 { #category : 'private',
   #vaVisibility : 'private' }
 SpiDeviceMCP23S17 >> writeByte: byte toDev: devId reg: reg port: port [
-	| buff |
+| buff |
 
 	buff := ByteArray new:3.
 	buff at: 1 put: (((devId bitAnd: 7)<<1 ) bitOr: SpiCmdWrite).

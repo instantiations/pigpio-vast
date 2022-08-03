@@ -6,7 +6,7 @@ Class {
 
 { #category : 'Not categorized' }
 OSRawCbs class >> info: info src: src dst: dst length: length stride: stride next: next [
-	"Create a new instance and set the values."
+"Create a new instance and set the values."
 
 	^self new info: info; src: src; dst: dst; length: length; stride: stride; next: next; yourself.
 
@@ -14,7 +14,7 @@ OSRawCbs class >> info: info src: src dst: dst length: length stride: stride nex
 
 { #category : 'Not categorized' }
 OSRawCbs class >> info: info src: src dst: dst length: length stride: stride next: next pad: pad [
-	"Create a new instance and set the values."
+"Create a new instance and set the values."
 
 	^self new info: info; src: src; dst: dst; length: length; stride: stride; next: next; pad: pad; yourself.
 
@@ -23,7 +23,7 @@ OSRawCbs class >> info: info src: src dst: dst length: length stride: stride nex
 { #category : 'Not categorized',
   #vaVisibility : 'private' }
 OSRawCbs class >> initializeAfterLoad [
-	"Initialize our size and members."
+"Initialize our size and members."
 
 	self
 		members: #(info src dst length stride next pad)
@@ -33,7 +33,7 @@ OSRawCbs class >> initializeAfterLoad [
 
 { #category : 'Not categorized' }
 OSRawCbs >> dst [
-	"Answer the value of dst."
+"Answer the value of dst."
 
 	^self uint32At: #dst.
 
@@ -41,7 +41,7 @@ OSRawCbs >> dst [
 
 { #category : 'Not categorized' }
 OSRawCbs >> dst: anInt [
-	"Set the value of dst."
+"Set the value of dst."
 
 	self uint32At: #dst put: anInt.
 
@@ -49,7 +49,7 @@ OSRawCbs >> dst: anInt [
 
 { #category : 'Not categorized' }
 OSRawCbs >> info [
-	"Answer the value of info."
+"Answer the value of info."
 
 	^self uint32At: #info.
 
@@ -57,7 +57,7 @@ OSRawCbs >> info [
 
 { #category : 'Not categorized' }
 OSRawCbs >> info: anInt [
-	"Set the value of info."
+"Set the value of info."
 
 	self uint32At: #info put: anInt.
 
@@ -65,7 +65,7 @@ OSRawCbs >> info: anInt [
 
 { #category : 'Not categorized' }
 OSRawCbs >> length [
-	"Answer the value of length."
+"Answer the value of length."
 
 	^self uint32At: #length.
 
@@ -73,7 +73,7 @@ OSRawCbs >> length [
 
 { #category : 'Not categorized' }
 OSRawCbs >> length: anInt [
-	"Set the value of length."
+"Set the value of length."
 
 	self uint32At: #length put: anInt.
 
@@ -81,7 +81,7 @@ OSRawCbs >> length: anInt [
 
 { #category : 'Not categorized' }
 OSRawCbs >> next [
-	"Answer the value of next."
+"Answer the value of next."
 
 	^self uint32At: #next.
 
@@ -89,7 +89,7 @@ OSRawCbs >> next [
 
 { #category : 'Not categorized' }
 OSRawCbs >> next: anInt [
-	"Set the value of next."
+"Set the value of next."
 
 	self uint32At: #next put: anInt.
 
@@ -97,7 +97,7 @@ OSRawCbs >> next: anInt [
 
 { #category : 'Not categorized' }
 OSRawCbs >> pad [
-	"Answer the member: DWORD[2] pad."
+"Answer the member: DWORD[2] pad."
 
 	^self arrayAt: #pad size: 2 type: OSUInt32.
 
@@ -105,7 +105,7 @@ OSRawCbs >> pad [
 
 { #category : 'Not categorized' }
 OSRawCbs >> pad: aValue [
-	"Set the member: DWORD[2] pad."
+"Set the member: DWORD[2] pad."
 
 	self arrayAt: #pad put: aValue size: 2.
 
@@ -113,7 +113,7 @@ OSRawCbs >> pad: aValue [
 
 { #category : 'Not categorized' }
 OSRawCbs >> src [
-	"Answer the value of src."
+"Answer the value of src."
 
 	^self uint32At: #src.
 
@@ -121,7 +121,7 @@ OSRawCbs >> src [
 
 { #category : 'Not categorized' }
 OSRawCbs >> src: anInt [
-	"Set the value of src."
+"Set the value of src."
 
 	self uint32At: #src put: anInt.
 
@@ -129,7 +129,7 @@ OSRawCbs >> src: anInt [
 
 { #category : 'Not categorized' }
 OSRawCbs >> stride [
-	"Answer the value of stride."
+"Answer the value of stride."
 
 	^self uint32At: #stride.
 
@@ -137,7 +137,7 @@ OSRawCbs >> stride [
 
 { #category : 'Not categorized' }
 OSRawCbs >> stride: anInt [
-	"Set the value of stride."
+"Set the value of stride."
 
 	self uint32At: #stride put: anInt.
 

@@ -21,7 +21,7 @@ Class {
 
 { #category : 'class initialization' }
 I2cDeviceADS1015ADC class >> initializeOnLoad [
-	"self initialize"
+"self initialize"
 	ADSGainMap := LookupTable new.
 	ADSGainMap
 		at: 6144 put: 0;
@@ -45,7 +45,7 @@ I2cDeviceADS1015ADC class >> initializeOnLoad [
 
 { #category : 'device read/write' }
 I2cDeviceADS1015ADC >> basicConfigFlags [
-	"set the basic flags that we really can't be bothered to individually configure
+"set the basic flags that we really can't be bothered to individually configure
 		use single-shot conversion (bit 15 and bit8)
 		no comparator (bits 4:0 = 3"
 	^16r8103
@@ -53,36 +53,36 @@ I2cDeviceADS1015ADC >> basicConfigFlags [
 
 { #category : 'device read/write' }
 I2cDeviceADS1015ADC >> channelFlags: chan [
-	"return the flags for channel"
+"return the flags for channel"
 	^#(16r4000 16r5000 16r6000 16r7000) at: chan+1 ifAbsent: [16r4000]
 ]
 
 { #category : 'device settings' }
 I2cDeviceADS1015ADC >> fullScaleMillivolts [
-	^fullScaleGain ifNil: [fullScaleGain := 2048]
+^fullScaleGain ifNil: [fullScaleGain := 2048]
 ]
 
 { #category : 'device settings' }
 I2cDeviceADS1015ADC >> fullScaleMillivolts: fsr [
-	"the full scale voltage is restricted to a few discrete values rather than any old number you happen to like. If you try a scale that isn't suported you'll get the default 2.048V"
+"the full scale voltage is restricted to a few discrete values rather than any old number you happen to like. If you try a scale that isn't suported you'll get the default 2.048V"
 	(ADSGainMap includesKey: fsr)
 		ifTrue: [fullScaleGain := fsr]
 ]
 
 { #category : 'device read/write' }
 I2cDeviceADS1015ADC >> gainMapFlags [
-	"return the flag bits for the chosen gain/full scale setting"
+"return the flag bits for the chosen gain/full scale setting"
 	^ADSGainMap at: self fullScaleMillivolts ifAbsent:[16r400]
 ]
 
 { #category : 'initialize-release' }
 I2cDeviceADS1015ADC >> initializeRegisters [
-	"the ADS line of ADCs don't do the full i2c whoami dance, so we have to just believe this is The One. To make it even more interesting we have to effectively write the config register each time we want a conversion done- so nothing gets done here"
+"the ADS line of ADCs don't do the full i2c whoami dance, so we have to just believe this is The One. To make it even more interesting we have to effectively write the config register each time we want a conversion done- so nothing gets done here"
 ]
 
 { #category : 'device read/write' }
 I2cDeviceADS1015ADC >> readChannel: chan [
-	"The ADS line of ADCs are easy to use as single-shot converters, but doing that means that each read request involves writing the config, waiting a moment for the conversion to take place and then reading the result.
+"The ADS line of ADCs are easy to use as single-shot converters, but doing that means that each read request involves writing the config, waiting a moment for the conversion to take place and then reading the result.
 	Note that the channels range 0-3 and the ExplorerHAT Pro in particular maps them 4-1 i e both backwards and 1 based, just to make for fun"
 	| config v |
 
@@ -103,12 +103,11 @@ I2cDeviceADS1015ADC >> readChannel: chan [
 
 { #category : 'device settings' }
 I2cDeviceADS1015ADC >> sampleRate [
-	^sampleRate ifNil: [sampleRate := 1600]
+^sampleRate ifNil: [sampleRate := 1600]
 ]
 
 { #category : 'device settings' }
 I2cDeviceADS1015ADC >> sampleRate: rate [
-
 	"the sampling rate is restricted to a few discrete values rather than any old number you happen to like. If you try a rate that isn't suported you'll get the default 1600"
 	(ADSSampleRates includesKey: rate)
 		ifTrue: [sampleRate := rate]
@@ -116,6 +115,6 @@ I2cDeviceADS1015ADC >> sampleRate: rate [
 
 { #category : 'device read/write' }
 I2cDeviceADS1015ADC >> samplesPerSecondFlags [
-	"return the flag bits for the required sample rate"
+"return the flag bits for the required sample rate"
 	^ADSSampleRates at: self sampleRate ifAbsent:[16r80]
 ]

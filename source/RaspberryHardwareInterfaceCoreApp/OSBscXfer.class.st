@@ -6,7 +6,7 @@ Class {
 
 { #category : 'Not categorized' }
 OSBscXfer class >> control: control rxCnt: rxCnt rxBuf: rxBuf txCnt: txCnt txBuf: txBuf [
-	"Create a new instance and set the values."
+"Create a new instance and set the values."
 
 	^self new control: control; rxCnt: rxCnt; rxBuf: rxBuf; txCnt: txCnt; txBuf: txBuf; yourself.
 
@@ -15,7 +15,7 @@ OSBscXfer class >> control: control rxCnt: rxCnt rxBuf: rxBuf txCnt: txCnt txBuf
 { #category : 'Not categorized',
   #vaVisibility : 'private' }
 OSBscXfer class >> initializeAfterLoad [
-	"Initialize our size and members."
+"Initialize our size and members."
 
 	self
 		members: #(control rxCnt rxBuf txCnt txBuf)
@@ -25,7 +25,7 @@ OSBscXfer class >> initializeAfterLoad [
 
 { #category : 'Not categorized' }
 OSBscXfer >> control [
-	"Answer the value of control."
+"Answer the value of control."
 
 	^self uint32At: #control.
 
@@ -33,7 +33,7 @@ OSBscXfer >> control [
 
 { #category : 'Not categorized' }
 OSBscXfer >> control: anInt [
-	"Set the value of control."
+"Set the value of control."
 
 	self uint32At: #control put: anInt.
 
@@ -41,7 +41,7 @@ OSBscXfer >> control: anInt [
 
 { #category : 'Not categorized' }
 OSBscXfer >> rxBuf [
-	"Answer the member: CHAR[512] rxBuf."
+"Answer the member: CHAR[512] rxBuf."
 
 	^self stringAt: #rxBuf size: 512.
 
@@ -49,7 +49,7 @@ OSBscXfer >> rxBuf [
 
 { #category : 'Not categorized' }
 OSBscXfer >> rxBuf: aValue [
-	"Set the member: CHAR[512] rxBuf."
+"Set the member: CHAR[512] rxBuf."
 
 	self stringAt: #rxBuf put: aValue size: 512.
 
@@ -57,7 +57,7 @@ OSBscXfer >> rxBuf: aValue [
 
 { #category : 'Not categorized' }
 OSBscXfer >> rxCnt [
-	"Answer the value of rxCnt."
+"Answer the value of rxCnt."
 
 	^self int32At: #rxCnt.
 
@@ -65,7 +65,7 @@ OSBscXfer >> rxCnt [
 
 { #category : 'Not categorized' }
 OSBscXfer >> rxCnt: anInt [
-	"Set the value of rxCnt."
+"Set the value of rxCnt."
 
 	self int32At: #rxCnt put: anInt.
 
@@ -73,7 +73,7 @@ OSBscXfer >> rxCnt: anInt [
 
 { #category : 'Not categorized' }
 OSBscXfer >> txBuf [
-	"Answer the member: CHAR[512] txBuf."
+"Answer the member: CHAR[512] txBuf."
 
 	^self stringAt: #txBuf size: 512.
 
@@ -81,7 +81,7 @@ OSBscXfer >> txBuf [
 
 { #category : 'Not categorized' }
 OSBscXfer >> txBuf: aValue [
-	"Set the member: CHAR[512] txBuf."
+"Set the member: CHAR[512] txBuf."
 
 	self stringAt: #txBuf put: aValue size: 512.
 
@@ -89,7 +89,7 @@ OSBscXfer >> txBuf: aValue [
 
 { #category : 'Not categorized' }
 OSBscXfer >> txCnt [
-	"Answer the value of txCnt."
+"Answer the value of txCnt."
 
 	^self int32At: #txCnt.
 
@@ -97,7 +97,7 @@ OSBscXfer >> txCnt [
 
 { #category : 'Not categorized' }
 OSBscXfer >> txCnt: anInt [
-	"Set the value of txCnt."
+"Set the value of txCnt."
 
 	self int32At: #txCnt put: anInt.
 

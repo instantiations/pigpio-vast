@@ -28,7 +28,7 @@ Class {
 
 { #category : 'accessing' }
 RaspberryGpioDaemonInterface class >> defaultIP: anIPString andPort: portString [
-	"set the default IP address to connect the interface to; a string in plain IP form, plus a port number. Either can be nil"
+"set the default IP address to connect the interface to; a string in plain IP form, plus a port number. Either can be nil"
 	
 	"PigpiodInterface defaultIP: '192.168.1.108' andPort: nil" "remote Pi"
 	"PigpiodInterface defaultIP: nil andPort: nil" "this local Pi"
@@ -39,7 +39,7 @@ RaspberryGpioDaemonInterface class >> defaultIP: anIPString andPort: portString 
 
 { #category : 'class initialization' }
 RaspberryGpioDaemonInterface class >> initializeOnLoad [
-	"PigpiodInterface initialize."
+"PigpiodInterface initialize."
 
 	AllocatedInterfaces := EsWeakIdentitySet new
 		owner: self;
@@ -50,7 +50,7 @@ RaspberryGpioDaemonInterface class >> initializeOnLoad [
 
 { #category : 'class initialization' }
 RaspberryGpioDaemonInterface class >> new [
-	"#new cannot be used to create a RaspberryGpioDaemonInterface.  See #RaspberryGpioStartIp:port:."
+"#new cannot be used to create a RaspberryGpioDaemonInterface.  See #RaspberryGpioStartIp:port:."
 
 	^self shouldNotImplement.
 
@@ -58,7 +58,7 @@ RaspberryGpioDaemonInterface class >> new [
 
 { #category : 'Not categorized' }
 RaspberryGpioDaemonInterface class >> raiseError: anErrorCode with: contextDescription [
-	"Raise a <PiGpioErrorException> with the code @anErrorCode and
+"Raise a <PiGpioErrorException> with the code @anErrorCode and
 	 @contextDescription to indicate what failed."
 	
 	RaspberryHardwareInterfaceViaDaemonSubApp raiseError: anErrorCode with: contextDescription.
@@ -67,7 +67,7 @@ RaspberryGpioDaemonInterface class >> raiseError: anErrorCode with: contextDescr
 
 { #category : 'Not categorized' }
 RaspberryGpioDaemonInterface class >> randomInt [
-	"Answer a random integer between 1 and 1,000,000,000."
+"Answer a random integer between 1 and 1,000,000,000."
 
 	RandomIntegers isNil ifTrue: [RandomIntegers := EsRandom new].
 	^RandomIntegers nextInt: 1000000000.
@@ -76,7 +76,7 @@ RaspberryGpioDaemonInterface class >> randomInt [
 
 { #category : 'class initialization' }
 RaspberryGpioDaemonInterface class >> raspberryGpioStart [
-	"Create a new instance, connect to the daemon with the ip address and port and answer the instance."
+"Create a new instance, connect to the daemon with the ip address and port and answer the instance."
 
 	^self raspberryGpioStartIp: DefaultIP port: DefaultPort.
 
@@ -84,7 +84,7 @@ RaspberryGpioDaemonInterface class >> raspberryGpioStart [
 
 { #category : 'accessing' }
 RaspberryGpioDaemonInterface class >> raspberryGpioStartIp: ipString port: portString [
-	"Create a new instance, connect to the daemon with the ip address and port and answer the instance."
+"Create a new instance, connect to the daemon with the ip address and port and answer the instance."
 	| ip port interface |
 
 	ip := ipString ifNil: [DefaultIP].
@@ -100,7 +100,7 @@ RaspberryGpioDaemonInterface class >> raspberryGpioStartIp: ipString port: portS
 
 { #category : 'Not categorized' }
 RaspberryGpioDaemonInterface class >> shutDown [
-	"Ask external library to perform any necessary cleanup."
+"Ask external library to perform any necessary cleanup."
 
 	AllocatedInterfaces do: [:ai | ai shutDown].
 
@@ -108,7 +108,7 @@ RaspberryGpioDaemonInterface class >> shutDown [
 
 { #category : 'Not categorized' }
 RaspberryGpioDaemonInterface class >> shutDown: aPiGpiodInterface [
-	"Ask external library to perform any necessary cleanup."
+"Ask external library to perform any necessary cleanup."
 
 	aPiGpiodInterface shutDown.
 
@@ -116,7 +116,7 @@ RaspberryGpioDaemonInterface class >> shutDown: aPiGpiodInterface [
 
 { #category : 'I2C' }
 RaspberryGpioDaemonInterface >> bbI2cClose: sda [
-	"This function stops bit banging I2C on a pair of GPIO previously opened with [*bb_i2c_open*].
+"This function stops bit banging I2C on a pair of GPIO previously opened with [*bb_i2c_open*].
 		SDA: 0-31, the SDA GPIO used in a prior call to [*bb_i2c_open*]
 
 		Returns 0 if OK, otherwise BadUserGpio or NotI2CGpio."
@@ -127,7 +127,7 @@ RaspberryGpioDaemonInterface >> bbI2cClose: sda [
 
 { #category : 'I2C' }
 RaspberryGpioDaemonInterface >> bbI2cOpen: sda scl: scl baud: baud [
-	"This function selects a pair of GPIO for bit banging I2C at a specified baud rate.
+"This function selects a pair of GPIO for bit banging I2C at a specified baud rate.
 		Bit banging I2C allows for certain operations which are not possible with the standard I2C driver.
 
 		o baud rates as low as 50 
@@ -149,7 +149,7 @@ RaspberryGpioDaemonInterface >> bbI2cOpen: sda scl: scl baud: baud [
 
 { #category : 'I2C' }
 RaspberryGpioDaemonInterface >> bbI2cZip: sda inBuf: inBuf inLen: inLen outBuf: outBuf outLen: outLen [
-	"This function executes a sequence of bit banged I2C operations.  The operations to be performed are specified by the contents of inBuf which contains the concatenated command codes and associated data.
+"This function executes a sequence of bit banged I2C operations.  The operations to be performed are specified by the contents of inBuf which contains the concatenated command codes and associated data.
 
 		SDA: 0-31 (as used in a prior call to [*bb_i2c_open*])
 		inBuf: pointer to the concatenated I2C commands, see below
@@ -202,7 +202,7 @@ RaspberryGpioDaemonInterface >> bbI2cZip: sda inBuf: inBuf inLen: inLen outBuf: 
 
 { #category : 'Serial' }
 RaspberryGpioDaemonInterface >> bbSerialRead: userGpio buf: buf bufSize: bufSize [
-	"This function copies up to bufSize bytes of data read from the bit bang serial cyclic buffer to the buffer starting at buf.
+"This function copies up to bufSize bytes of data read from the bit bang serial cyclic buffer to the buffer starting at buf.
 
 		userGpio: 0-31, previously opened with [*BbSerialReadOpen*].
 		buf: an array to receive the read bytes.
@@ -223,7 +223,7 @@ RaspberryGpioDaemonInterface >> bbSerialRead: userGpio buf: buf bufSize: bufSize
 
 { #category : 'Serial' }
 RaspberryGpioDaemonInterface >> bbSerialReadClose: userGpio [
-	"This function closes a GPIO for bit bang reading of serial data.
+"This function closes a GPIO for bit bang reading of serial data.
 
 		userGpio: 0-31, previously opened with [*BbSerialReadOpen*].
 
@@ -235,7 +235,7 @@ RaspberryGpioDaemonInterface >> bbSerialReadClose: userGpio [
 
 { #category : 'Serial' }
 RaspberryGpioDaemonInterface >> bbSerialReadOpen: userGpio baud: baud dataBits: dataBits [
-	"This function opens a GPIO for bit bang reading of serial data.
+"This function opens a GPIO for bit bang reading of serial data.
 
 		userGpio: 0-31.
 		baud: 50-250000
@@ -253,7 +253,7 @@ RaspberryGpioDaemonInterface >> bbSerialReadOpen: userGpio baud: baud dataBits: 
 
 { #category : 'SPI' }
 RaspberryGpioDaemonInterface >> bbSpiClose: cs [
-	"This function stops bit banging SPI on a set of GPIO opened with [*bbSPIOpen*].
+"This function stops bit banging SPI on a set of GPIO opened with [*bbSPIOpen*].
 
 		cs: 0-31, the CS GPIO used in a prior call to [*bbSpiOpen*]
 
@@ -265,7 +265,7 @@ RaspberryGpioDaemonInterface >> bbSpiClose: cs [
 
 { #category : 'SPI' }
 RaspberryGpioDaemonInterface >> bbSpiOpen: cs miso: miso mosi: mosi sclk: sclk baud: baud spiFlags: spiFlags [
-	"This function selects a set of GPIO for bit banging SPI at a specified baud rate.
+"This function selects a set of GPIO for bit banging SPI at a specified baud rate.
 
 		cs: 0-31
 		miso: 0-31
@@ -304,7 +304,7 @@ RaspberryGpioDaemonInterface >> bbSpiOpen: cs miso: miso mosi: mosi sclk: sclk b
 
 { #category : 'SPI' }
 RaspberryGpioDaemonInterface >> bbSpiXfer: cs txBuf: txBuf rxBuf: rxBuf count: count [
-	"This function executes a bit banged SPI transfer.
+"This function executes a bit banged SPI transfer.
 
 		cs: 0-31 (as used in a prior call to [*bbSpiOpen*])
 		txBuf: pointer to buffer to hold data to be sent
@@ -319,7 +319,7 @@ RaspberryGpioDaemonInterface >> bbSpiXfer: cs txBuf: txBuf rxBuf: rxBuf count: c
 
 { #category : 'I2C' }
 RaspberryGpioDaemonInterface >> bscI2c: i2cAddr bscXfer: bscXfer [
-	"This function allows the Raspberry to act as a slave I2C device.
+"This function allows the Raspberry to act as a slave I2C device.
 
 		The data bytes (if any) are written to the BSC transmit FIFO and the bytes in the BSC receive FIFO are returned.
 
@@ -341,7 +341,7 @@ RaspberryGpioDaemonInterface >> bscI2c: i2cAddr bscXfer: bscXfer [
 { #category : 'I2C',
  #vaCategories : ['I2C','SPI'] }
 RaspberryGpioDaemonInterface >> bscXfer: aBscXfer [
-	"This function provides a low-level interface to the SPI/I2C Slave peripheral.
+"This function provides a low-level interface to the SPI/I2C Slave peripheral.
 		This peripheral allows the Raspberry to act as a slave device on an I2C or SPI bus.
 
 		The author of pigpiod_if2.so can't get SPI to work properly.  He tried with a control word of 0x303 and swapped MISO and MOSI.
@@ -441,7 +441,7 @@ RaspberryGpioDaemonInterface >> bscXfer: aBscXfer [
 
 { #category : 'Callback' }
 RaspberryGpioDaemonInterface >> callbackCancel: callbackId [
-	"This function cancels a callback identified by its id.
+"This function cancels a callback identified by its id.
 
 		callbackId: >=0, as returned by a call to [*callback*] or [*callback_ex*].
 
@@ -453,7 +453,7 @@ RaspberryGpioDaemonInterface >> callbackCancel: callbackId [
 
 { #category : 'Primitives' }
 RaspberryGpioDaemonInterface >> clearBank1: bits [
-	"Clears GPIO 0-31 if the corresponding bit in bits is set.
+"Clears GPIO 0-31 if the corresponding bit in bits is set.
 
 		bits: a bit mask with 1 set if the corresponding GPIO is to be cleared.
 
@@ -467,7 +467,7 @@ RaspberryGpioDaemonInterface >> clearBank1: bits [
 
 { #category : 'Primitives' }
 RaspberryGpioDaemonInterface >> clearBank2: bits [
-	"Clears GPIO 32-53 if the corresponding bit (0-21) in bits is set.
+"Clears GPIO 32-53 if the corresponding bit (0-21) in bits is set.
 
 		bits: a bit mask with 1 set if the corresponding GPIO is to be cleared.
 
@@ -481,7 +481,7 @@ RaspberryGpioDaemonInterface >> clearBank2: bits [
 
 { #category : 'Setup' }
 RaspberryGpioDaemonInterface >> createGpioDeviceDRV8835MotorDrive: speedPin directionPin: directionPin [
-	"Create and answer a new instance of GpioDeviceDRV8835MotorDrive."
+"Create and answer a new instance of GpioDeviceDRV8835MotorDrive."
 
 	^GpioDeviceDRV8835MotorDrive basicNew speedPin: speedPin directionPin: directionPin gpioInterface: self; yourself.
 
@@ -489,7 +489,7 @@ RaspberryGpioDaemonInterface >> createGpioDeviceDRV8835MotorDrive: speedPin dire
 
 { #category : 'Setup' }
 RaspberryGpioDaemonInterface >> createGpioDeviceHBridge: pinA pinB: pinB [
-	"Create and answer a new instance of GpioDeviceHBridge."
+"Create and answer a new instance of GpioDeviceHBridge."
 
 	^GpioDeviceHBridge basicNew pinA: pinA pinB: pinB gpioInterface: self; yourself.
 
@@ -497,7 +497,7 @@ RaspberryGpioDaemonInterface >> createGpioDeviceHBridge: pinA pinB: pinB [
 
 { #category : 'I2C' }
 RaspberryGpioDaemonInterface >> createI2cBus: slaveAddress [
-	"Create, set up and answer a new instance of I2cBusGpio."
+"Create, set up and answer a new instance of I2cBusGpio."
 	| handle msg bus |
 
 	handle := self i2cOpen: slaveAddress.
@@ -513,7 +513,7 @@ RaspberryGpioDaemonInterface >> createI2cBus: slaveAddress [
 
 { #category : 'I2C' }
 RaspberryGpioDaemonInterface >> createI2cDevice: deviceClass slaveAddress: slaveAddress [
-	"Create an instance of the I2cDevice, an I2cGpioSerialBus for it and answer the instance.
+"Create an instance of the I2cDevice, an I2cGpioSerialBus for it and answer the instance.
 		deviceClass is a subclass of I2cDevice."
 	| bus device |
 
@@ -526,7 +526,7 @@ RaspberryGpioDaemonInterface >> createI2cDevice: deviceClass slaveAddress: slave
 
 { #category : 'SPI' }
 RaspberryGpioDaemonInterface >> createSpiBusChannel: channel speed: baud flags: spiFlags [
-	"Create, set up and answer a new instance of SpiGpioSerialBus."
+"Create, set up and answer a new instance of SpiGpioSerialBus."
 	| handle msg bus |
 
 	handle := self spiSetup: channel speed: baud flags: spiFlags.
@@ -542,7 +542,6 @@ RaspberryGpioDaemonInterface >> createSpiBusChannel: channel speed: baud flags: 
 
 { #category : 'SPI' }
 RaspberryGpioDaemonInterface >> createSpiDevice: deviceClass channel: channel speed: speed flags: flags [
-
 	"Create an instance of the SpiDevice, a SpiGpioSerialBus for it and answer the instance.
 		deviceClass is a subclass of SpiDevice."
 	| bus device baud theFlags|
@@ -559,7 +558,7 @@ RaspberryGpioDaemonInterface >> createSpiDevice: deviceClass channel: channel sp
 
 { #category : 'Primitives' }
 RaspberryGpioDaemonInterface >> custom1: arg1 arg2: arg2 argX: argX [
-	"This function is available for user customisation.
+"This function is available for user customisation.
 
 		It returns a single integer value.
 
@@ -576,7 +575,7 @@ RaspberryGpioDaemonInterface >> custom1: arg1 arg2: arg2 argX: argX [
 
 { #category : 'Primitives' }
 RaspberryGpioDaemonInterface >> custom2: arg1 arg2: arg2 argX: argX retMax: retMax [
-	"This function is available for user customisation.
+"This function is available for user customisation.
 
 		It differs from custom_1 in that it returns an array of bytes rather than just an integer.
 
@@ -601,7 +600,7 @@ RaspberryGpioDaemonInterface >> custom2: arg1 arg2: arg2 argX: argX retMax: retM
 
 { #category : 'Script' }
 RaspberryGpioDaemonInterface >> deleteScript: scriptId [
-	"This function deletes a stored script.
+"This function deletes a stored script.
 
 		scriptId >=0, as returned by [*store_script*].
 
@@ -613,7 +612,7 @@ RaspberryGpioDaemonInterface >> deleteScript: scriptId [
 
 { #category : 'Callback' }
 RaspberryGpioDaemonInterface >> eventCallbackCancel: callbackId [
-	"This function cancels an event callback identified by its id.
+"This function cancels an event callback identified by its id.
 
 		callbackId: >=0, as returned by a call to [*event_callback*] or [*event_callback_ex*].
 
@@ -625,7 +624,7 @@ RaspberryGpioDaemonInterface >> eventCallbackCancel: callbackId [
 
 { #category : 'Event' }
 RaspberryGpioDaemonInterface >> eventTrigger: event [
-	"This function signals the occurrence of an event.
+"This function signals the occurrence of an event.
 
 		event: 0-31.
 
@@ -646,7 +645,7 @@ RaspberryGpioDaemonInterface >> eventTrigger: event [
 
 { #category : 'FileIO' }
 RaspberryGpioDaemonInterface >> fileClose: handle [
-	"This method is supplied for the sake of completeness, see Smalltalk Cfs... classes."
+"This method is supplied for the sake of completeness, see Smalltalk Cfs... classes."
 	"This function closes the file associated with handle.
 
 		handle: >=0 (as returned by [*fileOpen*]).
@@ -659,7 +658,7 @@ RaspberryGpioDaemonInterface >> fileClose: handle [
 
 { #category : 'FileIO' }
 RaspberryGpioDaemonInterface >> fileList: fPat buf: buf count: count [
-	"This method is supplied for the sake of completeness, see Smalltalk Cfs... classes."
+"This method is supplied for the sake of completeness, see Smalltalk Cfs... classes."
 	"This function returns a list of files which match a pattern.
 
 		fpat: file pattern to match.
@@ -680,7 +679,7 @@ RaspberryGpioDaemonInterface >> fileList: fPat buf: buf count: count [
 
 { #category : 'FileIO' }
 RaspberryGpioDaemonInterface >> fileOpen: fileName mode: mode [
-	"This method is supplied for the sake of completeness, see Smalltalk Cfs... classes."
+"This method is supplied for the sake of completeness, see Smalltalk Cfs... classes."
 	"This function returns a handle to a file opened in a specified mode.
 
 		fileName: the file to open.
@@ -744,7 +743,7 @@ RaspberryGpioDaemonInterface >> fileOpen: fileName mode: mode [
 
 { #category : 'FileIO' }
 RaspberryGpioDaemonInterface >> fileRead: handle buf: buf count: count [
-	"This method is supplied for the sake of completeness, see Smalltalk Cfs... classes."
+"This method is supplied for the sake of completeness, see Smalltalk Cfs... classes."
 	"This function reads up to count bytes from the the file associated with handle and writes them to buf.
 
 		handle: >=0 (as returned by [*fileOpen*]).
@@ -765,7 +764,7 @@ RaspberryGpioDaemonInterface >> fileRead: handle buf: buf count: count [
 
 { #category : 'FileIO' }
 RaspberryGpioDaemonInterface >> fileSeek: handle seekOffset: seekOffset seekFrom: seekFrom [
-	"This method is supplied for the sake of completeness, see Smalltalk Cfs... classes."
+"This method is supplied for the sake of completeness, see Smalltalk Cfs... classes."
 	"This function seeks to a position within the file associated with handle.
 
 		handle: >=0 (as returned by [*fileOpen*]).
@@ -785,7 +784,7 @@ RaspberryGpioDaemonInterface >> fileSeek: handle seekOffset: seekOffset seekFrom
 
 { #category : 'FileIO' }
 RaspberryGpioDaemonInterface >> fileWrite: handle buf: buf count: count [
-	"This method is supplied for the sake of completeness, see Smalltalk Cfs... classes."
+"This method is supplied for the sake of completeness, see Smalltalk Cfs... classes."
 	"This function writes count bytes from buf to the the file associated with handle.
 
 		handle: >=0 (as returned by [*fileOpen*]).
@@ -806,7 +805,7 @@ RaspberryGpioDaemonInterface >> fileWrite: handle buf: buf count: count [
 
 { #category : 'Hardware' }
 RaspberryGpioDaemonInterface >> getCurrentTick [
-	"Returns the current system tick.
+"Returns the current system tick.
 		Tick is the number of microseconds since system boot.
 
 		This is included in the interface for the sake of completeness but there are better ways in Smalltalk.
@@ -833,7 +832,7 @@ RaspberryGpioDaemonInterface >> getCurrentTick [
 
 { #category : 'Hardware' }
 RaspberryGpioDaemonInterface >> getHardwareRevision [
-	"Returns the hardware revision.
+"Returns the hardware revision.
 
 		If the hardware revision can not be found or is not a valid hexadecimal number the function returns 0.
 
@@ -857,7 +856,7 @@ RaspberryGpioDaemonInterface >> getHardwareRevision [
 
 { #category : 'Hardware' }
 RaspberryGpioDaemonInterface >> getPadStrength: pad [
-	"This function returns the pad drive strength in mA.
+"This function returns the pad drive strength in mA.
 
 		pad: 0-2, the pad to get.
 
@@ -877,7 +876,7 @@ RaspberryGpioDaemonInterface >> getPadStrength: pad [
 
 { #category : 'Pin Handling' }
 RaspberryGpioDaemonInterface >> getPinMode: pin [
-	"Returns the mode of #pin if ok or BadGpio.
+"Returns the mode of #pin if ok or BadGpio.
 		#pin is the Broadcom pin number, aka gpio and userGpio.
 		pin: 0-53
 	 "
@@ -888,7 +887,7 @@ RaspberryGpioDaemonInterface >> getPinMode: pin [
 
 { #category : 'PWM' }
 RaspberryGpioDaemonInterface >> getPwmDutyCycleForPin: pin [
-	"Get the pwm duty cycle (0-range, default 255 max) for pin.
+"Get the pwm duty cycle (0-range, default 255 max) for pin.
 		Returns 0-range if ok, or BadUserGpio or NotPwmGpio.
 		Use #id:pinGetPwmRange: to read the pwm range setting."
 	"#pin is the Broadcom pin number, aka gpio and userGpio.
@@ -900,7 +899,7 @@ RaspberryGpioDaemonInterface >> getPwmDutyCycleForPin: pin [
 
 { #category : 'Hardware' }
 RaspberryGpioDaemonInterface >> getRaspberryGpioVersion [
-	"Returns the Raspberry GPIO version."
+"Returns the Raspberry GPIO version."
 
 	^GetRaspberryGpioVersion callWith: id.
 
@@ -908,7 +907,7 @@ RaspberryGpioDaemonInterface >> getRaspberryGpioVersion [
 
 { #category : 'Event' }
 RaspberryGpioDaemonInterface >> gpioTrigger: userGpio pulseLen: pulseLen level: level [
-	"This function sends a trigger pulse to a GPIO.  The GPIO is set to level for pulseLen microseconds and then reset to not level.
+"This function sends a trigger pulse to a GPIO.  The GPIO is set to level for pulseLen microseconds and then reset to not level.
 
 		userGpio 0-31.
 		pulseLen: 1-100.
@@ -922,7 +921,7 @@ RaspberryGpioDaemonInterface >> gpioTrigger: userGpio pulseLen: pulseLen level: 
 
 { #category : 'Hardware' }
 RaspberryGpioDaemonInterface >> hardwareClock: pin clkFreq: clkFreq [
-	"Starts a hardware clock on a GPIO at the specified frequency.  Frequencies above 30MHz are unlikely to work.
+"Starts a hardware clock on a GPIO at the specified frequency.  Frequencies above 30MHz are unlikely to work.
 
 		pin: is the Broadcom pin number, aka gpio and userGpio - 0-53
 		frequency: 0 (off) or 4689-250000000 (250M)
@@ -953,7 +952,7 @@ RaspberryGpioDaemonInterface >> hardwareClock: pin clkFreq: clkFreq [
 
 { #category : 'Hardware' }
 RaspberryGpioDaemonInterface >> hardwarePwm: pin pwmFreq: pwmFreq pwmDuty: pwmDuty [
-	"Starts hardware PWM on a GPIO at the specified frequency and dutycycle.  Frequencies above 30MHz are unlikely to work.
+"Starts hardware PWM on a GPIO at the specified frequency and dutycycle.  Frequencies above 30MHz are unlikely to work.
 
 		NOTE: Any waveform started by [*wave_send_**] or [*wave_chain*] will be cancelled.
 
@@ -995,7 +994,7 @@ RaspberryGpioDaemonInterface >> hardwarePwm: pin pwmFreq: pwmFreq pwmDuty: pwmDu
 
 { #category : 'I2C' }
 RaspberryGpioDaemonInterface >> i2cBlockProcessCall: handle register: regNum buffer: buf [
-	"This writes data bytes to the specified register of the device associated with handle and reads a device specified number of bytes of data in return.
+"This writes data bytes to the specified register of the device associated with handle and reads a device specified number of bytes of data in return.
 
 		handle: >=0, as returned by a call to [*i2c_open*].
 		i2c_reg: 0-255, the register to write/read.
@@ -1022,7 +1021,7 @@ RaspberryGpioDaemonInterface >> i2cBlockProcessCall: handle register: regNum buf
 
 { #category : 'I2C' }
 RaspberryGpioDaemonInterface >> i2cCloseBus: bus [
-	"Disconnect from the i2c device, freeing the handle etc.  Returns 0 if ok, otherwise GpioBadHandle."
+"Disconnect from the i2c device, freeing the handle etc.  Returns 0 if ok, otherwise GpioBadHandle."
 
 	^I2cClose callWith: id with: bus handle.
 
@@ -1030,7 +1029,7 @@ RaspberryGpioDaemonInterface >> i2cCloseBus: bus [
 
 { #category : 'I2C' }
 RaspberryGpioDaemonInterface >> i2cOpen: devId [
-	"RaspberryGpioInterface instance i2CSetup: 16r54 for example for PiGlow.
+"RaspberryGpioInterface instance i2CSetup: 16r54 for example for PiGlow.
 	Return >= 0 if ok (the handle), or GpioBadI2CBus, GpioBadI2CAddr, GpioBadFlags GpioNoHandle or GpioI2COpenFailed"
 
 	^I2cOpen callWith: id with: 1 with: devId with: 0.
@@ -1039,7 +1038,7 @@ RaspberryGpioDaemonInterface >> i2cOpen: devId [
 
 { #category : 'I2C' }
 RaspberryGpioDaemonInterface >> i2cOpen: bus device: devId flags: flags [
-	"RaspberryGpioInterface instance id: id i2cOpen: 1 device: 16r54 flags: 0 for example for PiGlow.
+"RaspberryGpioInterface instance id: id i2cOpen: 1 device: 16r54 flags: 0 for example for PiGlow.
 	Return >= 0 if ok (the handle), or GpioBadI2CBus, GpioBadI2CAddr, GpioBadFlags, GpioNoHandle or GpioI2COpenFailed"
 
 	^I2cOpen callWith: id with: bus with: devId with: flags.
@@ -1048,7 +1047,7 @@ RaspberryGpioDaemonInterface >> i2cOpen: bus device: devId flags: flags [
 
 { #category : 'I2C' }
 RaspberryGpioDaemonInterface >> i2cProcessCall: handle register: regNum wVal: val [
-	"This writes 16 bits of data to the specified register of the device associated with handle and and reads 16 bits of data in return.
+"This writes 16 bits of data to the specified register of the device associated with handle and and reads 16 bits of data in return.
 
 		handle: >=0, as returned by a call to [*i2c_open*].
 		i2c_reg: 0-255, the register to write/read.
@@ -1071,7 +1070,7 @@ RaspberryGpioDaemonInterface >> i2cProcessCall: handle register: regNum wVal: va
 
 { #category : 'I2C' }
 RaspberryGpioDaemonInterface >> i2cRead16Bus: bus register: regNum [
-	"read a 16bit i2c register.
+"read a 16bit i2c register.
 	Returns word ( >= 0) or GpioBadHandle, GpioBadParam or GpioI2CReadFailed"
 
 	^self i2cReadWordBus: bus register: regNum.
@@ -1080,7 +1079,7 @@ RaspberryGpioDaemonInterface >> i2cRead16Bus: bus register: regNum [
 
 { #category : 'I2C' }
 RaspberryGpioDaemonInterface >> i2cReadBlockData: handle register: regNum buf: buf [
-	"This reads a block of up to 32 bytes from the specified register of the device associated with handle.
+"This reads a block of up to 32 bytes from the specified register of the device associated with handle.
 
 		handle: >=0, as returned by a call to [*i2c_open*].
 		i2c_reg: 0-255, the register to read.
@@ -1101,7 +1100,7 @@ RaspberryGpioDaemonInterface >> i2cReadBlockData: handle register: regNum buf: b
 
 { #category : 'I2C' }
 RaspberryGpioDaemonInterface >> i2cReadBus: bus register: regNum [
-	"read a byte i2c register.
+"read a byte i2c register.
 	Returns the byte ( >= 0) or GpioBadHandle or GpioI2CReadFailed"
 
 	^I2cReadByteData callWith: id with: bus handle with: regNum.
@@ -1110,7 +1109,7 @@ RaspberryGpioDaemonInterface >> i2cReadBus: bus register: regNum [
 
 { #category : 'I2C' }
 RaspberryGpioDaemonInterface >> i2cReadByte: handle register: regNum [
-	"This reads a single byte from the specified register of the device associated with handle.
+"This reads a single byte from the specified register of the device associated with handle.
 
 		handle: >=0, as returned by a call to [*i2c_open*].
 		regNum: 0-255, the register to read.
@@ -1127,7 +1126,7 @@ RaspberryGpioDaemonInterface >> i2cReadByte: handle register: regNum [
 
 { #category : 'I2C' }
 RaspberryGpioDaemonInterface >> i2cReadDevice: handle buf: buf count: count [
-	"This reads count bytes from the raw device into buf.
+"This reads count bytes from the raw device into buf.
 
 		handle: >=0, as returned by a call to [*i2c_open*].
 		buf: an array to receive the read data bytes.
@@ -1143,7 +1142,7 @@ RaspberryGpioDaemonInterface >> i2cReadDevice: handle buf: buf count: count [
 
 { #category : 'I2C' }
 RaspberryGpioDaemonInterface >> i2cReadI2cBlockData: handle register: regNum buf: buf count: count [
-	"This reads count bytes from the specified register of the device associated with handle .  The count may be 1-32.
+"This reads count bytes from the specified register of the device associated with handle .  The count may be 1-32.
 
 		handle: >=0, as returned by a call to [*i2c_open*].
 		regNum: 0-255, the register to read.
@@ -1161,7 +1160,7 @@ RaspberryGpioDaemonInterface >> i2cReadI2cBlockData: handle register: regNum buf
 
 { #category : 'I2C' }
 RaspberryGpioDaemonInterface >> i2cReadPairBus: bus register: regNum [
-	"read a 16bit value from two paired i2c registers"
+"read a 16bit value from two paired i2c registers"
 
 	^(self i2cReadBus: bus register: regNum) bitOr: (self i2cReadBus: bus register: regNum + 1) << 8.
 
@@ -1169,7 +1168,7 @@ RaspberryGpioDaemonInterface >> i2cReadPairBus: bus register: regNum [
 
 { #category : 'I2C' }
 RaspberryGpioDaemonInterface >> i2cReadWordBus: bus register: regNum [
-	"read a 16bit i2c register.
+"read a 16bit i2c register.
 	Returns word ( >= 0) or GpioBadHandle, GpioBadParam or GpioI2cReadFailed"
 
 	^I2cReadWordData callWith: id with: bus handle with: regNum.
@@ -1178,7 +1177,7 @@ RaspberryGpioDaemonInterface >> i2cReadWordBus: bus register: regNum [
 
 { #category : 'I2C' }
 RaspberryGpioDaemonInterface >> i2cWrite16Bus: bus register: regNum value: val [
-	"write a 16bit i2c register.
+"write a 16bit i2c register.
 	Returns 0 if OK, otherwise GpioBadHandle, GpioBadParam or GpioI2CWriteFailed"
 
 	^I2cWriteWordData callWith: id with: bus handle with: regNum with: val.
@@ -1187,7 +1186,7 @@ RaspberryGpioDaemonInterface >> i2cWrite16Bus: bus register: regNum value: val [
 
 { #category : 'I2C' }
 RaspberryGpioDaemonInterface >> i2cWriteBlockData: handle register: regNum buf: buf count: count [
-	"This writes up to 32 bytes to the specified register of the device associated with handle.
+"This writes up to 32 bytes to the specified register of the device associated with handle.
 
 		handle: >=0, as returned by a call to [*i2c_open*].
 		regNum: 0-255, the register to write.
@@ -1206,7 +1205,7 @@ RaspberryGpioDaemonInterface >> i2cWriteBlockData: handle register: regNum buf: 
 
 { #category : 'I2C' }
 RaspberryGpioDaemonInterface >> i2cWriteBus: bus register: regNum value: val [
-	"write a byte i2c register.
+"write a byte i2c register.
 	Returns 0 if OK, otherwise GpioBadHandle, GpioBadParam or GpioI2cWriteFailed"
 
 	^I2cWriteByteData callWith: id with: bus handle with: regNum with: val.
@@ -1215,7 +1214,7 @@ RaspberryGpioDaemonInterface >> i2cWriteBus: bus register: regNum value: val [
 
 { #category : 'I2C' }
 RaspberryGpioDaemonInterface >> i2cWriteByte: handle register: regNum byte: byte [
-	"This writes a single byte to the specified register of the device associated with handle.
+"This writes a single byte to the specified register of the device associated with handle.
 
 		handle: >=0, as returned by a call to [*i2c_open*].
 		regNum: 0-255, the register to write.
@@ -1233,7 +1232,7 @@ RaspberryGpioDaemonInterface >> i2cWriteByte: handle register: regNum byte: byte
 
 { #category : 'I2C' }
 RaspberryGpioDaemonInterface >> i2cWriteDevice: handle buf: buf count: count [
-	"This writes count bytes from buf to the raw device.
+"This writes count bytes from buf to the raw device.
 
 		handle: >=0, as returned by a call to [*i2c_open*].
 		buf: an array containing the data bytes to write.
@@ -1249,7 +1248,7 @@ RaspberryGpioDaemonInterface >> i2cWriteDevice: handle buf: buf count: count [
 
 { #category : 'I2C' }
 RaspberryGpioDaemonInterface >> i2cWriteI2cBlockData: handle register: regNum buf: buf count: count [
-	"This writes 1 to 32 bytes to the specified register of the device associated with handle.
+"This writes 1 to 32 bytes to the specified register of the device associated with handle.
 
 		handle: >=0, as returned by a call to [*i2c_open*].
 		regNum: 0-255, the register to write.
@@ -1266,7 +1265,7 @@ RaspberryGpioDaemonInterface >> i2cWriteI2cBlockData: handle register: regNum bu
 
 { #category : 'I2C' }
 RaspberryGpioDaemonInterface >> i2cWriteQuick: handle bit: bit [
-	"This sends a single bit (in the Rd/Wr bit) to the device associated with handle.
+"This sends a single bit (in the Rd/Wr bit) to the device associated with handle.
 
 		handle: >=0, as returned by a call to [*i2c_open*].
 		bit: 0-1, the value to write.
@@ -1283,7 +1282,7 @@ RaspberryGpioDaemonInterface >> i2cWriteQuick: handle bit: bit [
 
 { #category : 'I2C' }
 RaspberryGpioDaemonInterface >> i2cWriteWordData: handle register: regNum value: val [
-	"write a 16bit i2c register.
+"write a 16bit i2c register.
 	Returns 0 if OK, otherwise GpioBadHandle, GpioBadParam or GpioI2cWriteFailed"
 
 	^I2cWriteWordData callWith: handle with: regNum with: val.
@@ -1292,7 +1291,7 @@ RaspberryGpioDaemonInterface >> i2cWriteWordData: handle register: regNum value:
 
 { #category : 'I2C' }
 RaspberryGpioDaemonInterface >> i2cZip: handle inBuf: inBuf inLen: inLen outBuf: outBuf outLen: outLen [
-	"This function executes a sequence of I2c operations.  The operations to be performed are specified by the contents of inBuf
+"This function executes a sequence of I2c operations.  The operations to be performed are specified by the contents of inBuf
 		which contains the concatenated command codes and associated data.
 
 		handle: >=0, as returned by a call to [*i2cOpen*]
@@ -1338,7 +1337,7 @@ RaspberryGpioDaemonInterface >> i2cZip: handle inBuf: inBuf inLen: inLen outBuf:
 
 { #category : 'Setup' }
 RaspberryGpioDaemonInterface >> id [
-	"Answer our id."
+"Answer our id."
 
 	^id.
 
@@ -1346,7 +1345,7 @@ RaspberryGpioDaemonInterface >> id [
 
 { #category : 'Pin Handling' }
 RaspberryGpioDaemonInterface >> isPinOn: pin [
-	"Read the value of a given Pin, returning HIGH (true) or LOW (false) or GpioBadGpio. 
+"Read the value of a given Pin, returning HIGH (true) or LOW (false) or GpioBadGpio. 
 	Note that if you connect a button via a pullDOWN it will return false when pressed, or for a button on a pullUP pin you will get true when pressed."
 
 	^((self readPin: pin) = 1).
@@ -1355,7 +1354,7 @@ RaspberryGpioDaemonInterface >> isPinOn: pin [
 
 { #category : 'Error Handling' }
 RaspberryGpioDaemonInterface >> lookUpAndRaiseError: anErrorCode [
-	"Raise a <RaspberryGpioErrorException> with the code @anErrorCode and
+"Raise a <RaspberryGpioErrorException> with the code @anErrorCode and
 		look up the error code to indicate what failed."
 
 	RaspberryHardwareInterfaceViaDaemonSubApp lookUpAndRaiseError: anErrorCode.
@@ -1364,7 +1363,7 @@ RaspberryGpioDaemonInterface >> lookUpAndRaiseError: anErrorCode [
 
 { #category : 'Error Handling' }
 RaspberryGpioDaemonInterface >> lookUpAndRaiseError: anErrorCode with: contextDescription [
-	"Raise a <RaspberryGpioErrorException> with the code @anErrorCode and
+"Raise a <RaspberryGpioErrorException> with the code @anErrorCode and
 		look up the error code and append @contextDescription to it to indicate what failed."
 
 	RaspberryHardwareInterfaceViaDaemonSubApp lookUpAndRaiseError: anErrorCode with: contextDescription.
@@ -1373,7 +1372,7 @@ RaspberryGpioDaemonInterface >> lookUpAndRaiseError: anErrorCode with: contextDe
 
 { #category : 'Notify' }
 RaspberryGpioDaemonInterface >> notifyBegin: handle bits: bits [
-	"Start notifications on a previously opened handle.
+"Start notifications on a previously opened handle.
 
 		handle: 0-31 (as returned by [*notify_open*])
 		bits: a mask indicating the GPIO to be notified.
@@ -1412,7 +1411,7 @@ RaspberryGpioDaemonInterface >> notifyBegin: handle bits: bits [
 
 { #category : 'Notify' }
 RaspberryGpioDaemonInterface >> notifyClose: handle [
-	"Stop notifications on a previously opened handle and release the handle for reuse.
+"Stop notifications on a previously opened handle and release the handle for reuse.
 
 		handle: 0-31 (as returned by [*notify_open*])
 
@@ -1424,7 +1423,7 @@ RaspberryGpioDaemonInterface >> notifyClose: handle [
 
 { #category : 'Notify' }
 RaspberryGpioDaemonInterface >> notifyOpen [
-	"Get a free notification handle.
+"Get a free notification handle.
 
 		Returns a handle greater than or equal to zero if OK, otherwise NoHandle.
 
@@ -1442,7 +1441,7 @@ RaspberryGpioDaemonInterface >> notifyOpen [
 
 { #category : 'Notify' }
 RaspberryGpioDaemonInterface >> notifyPause: handle [
-	"Pause notifications on a previously opened handle.
+"Pause notifications on a previously opened handle.
 
 		handle: 0-31 (as returned by [*notify_open*])
 		Returns 0 if OK, otherwise GpioBadHandle.
@@ -1456,7 +1455,7 @@ RaspberryGpioDaemonInterface >> notifyPause: handle [
 { #category : 'Pin Handling',
  #vaCategories : ['Pin Handling','Serial'] }
 RaspberryGpioDaemonInterface >> pin: userGpio invert: invert [
-	"This function inverts serial logic for big bang serial reads.
+"This function inverts serial logic for big bang serial reads.
 
 		userGpio: 0-31, previously opened with [*BbSerialReadOpen*].
 		invert: 0-1, 1 invert, 0 normal.
@@ -1469,7 +1468,7 @@ RaspberryGpioDaemonInterface >> pin: userGpio invert: invert [
 
 { #category : 'Pin Handling' }
 RaspberryGpioDaemonInterface >> pin: pin setMode: mode [
-	"This sets the mode of a pin to either GpioInput, GpioOutput, or GpioAlt0-GpioAlt5 modes.
+"This sets the mode of a pin to either GpioInput, GpioOutput, or GpioAlt0-GpioAlt5 modes.
 		Returns 0 if OK, otherwise GpioBadGpio, GpioBadMode or GpioNotPermitted"
 	"RaspberryGpioDaemonInterface pin: 24 setMode: GpioInput"
 
@@ -1479,7 +1478,7 @@ RaspberryGpioDaemonInterface >> pin: pin setMode: mode [
 
 { #category : 'Pin Handling' }
 RaspberryGpioDaemonInterface >> pin: pin setPullUpDown: mode [
-	"Sets or clears resistor pull ups or downs on the GPIO.
+"Sets or clears resistor pull ups or downs on the GPIO.
 
 		pin: 0-53 - the Broadcom pin number, aka gpio and userGpio
 		mode: 0-2
@@ -1496,7 +1495,7 @@ RaspberryGpioDaemonInterface >> pin: pin setPullUpDown: mode [
 
 { #category : 'PWM' }
 RaspberryGpioDaemonInterface >> pin: pin setPwmDutyCycle: cycle [
-	"Set the PWM duty cycle (0-range, default 255 max) for pin.
+"Set the PWM duty cycle (0-range, default 255 max) for pin.
 		If dutycycle = 0, turn off PWM pulses for pin.
 		Returns 0 if ok, or GpioBadUSerGpio, GpioBadDutyCycle or GpioNotPermitted.
 		Use #id:pin:setPwmRange: to change the default range of 255.
@@ -1510,7 +1509,7 @@ RaspberryGpioDaemonInterface >> pin: pin setPwmDutyCycle: cycle [
 
 { #category : 'PWM' }
 RaspberryGpioDaemonInterface >> pin: pin setPwmRange: range [
-	"This sets the range of the pwm output - PiGPIO sets a user range and scales this to the 'real' range possible for the pin.
+"This sets the range of the pwm output - PiGPIO sets a user range and scales this to the 'real' range possible for the pin.
 		See also #readPwmRealRangePin: to find out what the actual range is use is.
 		Minimum allowed value is 25, max is 40,000.
 		Returns 0 if ok, or GpioBadUserGpio, GpioBadDutyRange or GpioNotPermitted"
@@ -1521,7 +1520,7 @@ RaspberryGpioDaemonInterface >> pin: pin setPwmRange: range [
 
 { #category : 'Pin Handling' }
 RaspberryGpioDaemonInterface >> pin: pin setServoPulsewidth: width [
-	"Set the servo pulse width (0- off, 500 - 2500) for pin. Updates at standard 50Hz.
+"Set the servo pulse width (0- off, 500 - 2500) for pin. Updates at standard 50Hz.
 		Updates at standard 50Hz.
 		If width = 0, turn off servo pulses for pin.
 		Returns 0 if ok, or GpioBadUserGpio, GpioBadPulseWidth or GpioNotPermitted.
@@ -1536,7 +1535,7 @@ RaspberryGpioDaemonInterface >> pin: pin setServoPulsewidth: width [
 
 { #category : 'Pin Handling' }
 RaspberryGpioDaemonInterface >> pin: pin write: value [
-	"Write value (0 or 1) to pin. 
+"Write value (0 or 1) to pin. 
 		Returns 0 if ok, or GpioBadGpio, GpioBadLevel or GpioNotPermitted.
 		Turns off pwm or servo pulses if previously active on this pin"
 
@@ -1547,7 +1546,7 @@ RaspberryGpioDaemonInterface >> pin: pin write: value [
 { #category : 'Pin Handling',
  #vaCategories : ['Pin Handling','Servo Control'] }
 RaspberryGpioDaemonInterface >> pin: gpioNum writeServoPercent: value [
-	"try to move a servo to value % of its range"
+"try to move a servo to value % of its range"
 
 	^self setServoPin: gpioNum value: ((value rounded * 5) + 1500).
 
@@ -1555,7 +1554,7 @@ RaspberryGpioDaemonInterface >> pin: gpioNum writeServoPercent: value [
 
 { #category : 'Pin Handling' }
 RaspberryGpioDaemonInterface >> pinGetMode: pin [
-	"Returns the mode of 'pin' if ok or PI_BAD_GPIO"
+"Returns the mode of 'pin' if ok or PI_BAD_GPIO"
 
 	^GetMode callWith: id with: pin.
 
@@ -1563,7 +1562,7 @@ RaspberryGpioDaemonInterface >> pinGetMode: pin [
 
 { #category : 'PWM' }
 RaspberryGpioDaemonInterface >> pinGetPwmDutyCycle: pin [
-	"Get the pwm duty cycle (0-range, default 255 max) for pin.
+"Get the pwm duty cycle (0-range, default 255 max) for pin.
 		Returns 0-range if ok, or BadUserGpio or NotPwmGpio.
 		Use #id:pinGetPwmRange: to read the pwm range setting."
 	"#pin is the Broadcom pin number, aka gpio and userGpio.
@@ -1575,7 +1574,7 @@ RaspberryGpioDaemonInterface >> pinGetPwmDutyCycle: pin [
 
 { #category : 'PWM' }
 RaspberryGpioDaemonInterface >> pinGetPwmFrequency: pin [
-	"Return the pwm frequency for pin.
+"Return the pwm frequency for pin.
 	Returns actual selected frequency if ok, or GpioBadUserGpio.
 	Available frequencies for the default 5uS sample rate are:-
 	8000, 4000, 2000, 1600, 1000, 800, 500, 400, 320, 250, 200, 160, 100, 80, 50, 40, 20, 10"
@@ -1586,7 +1585,7 @@ RaspberryGpioDaemonInterface >> pinGetPwmFrequency: pin [
 
 { #category : 'PWM' }
 RaspberryGpioDaemonInterface >> pinGetPwmRange: pin [
-	"Get the pwm duty cycle range (25-40000) for pin.
+"Get the pwm duty cycle range (25-40000) for pin.
 	Returns duty cycle range if ok, or GpioBadUserGpio.
 	Details seem a bit complex"
 
@@ -1596,7 +1595,7 @@ RaspberryGpioDaemonInterface >> pinGetPwmRange: pin [
 
 { #category : 'PWM' }
 RaspberryGpioDaemonInterface >> pinGetPwmRealRange: pin [
-	"Get the real pwm duty cycle range (25-40000) for pin.
+"Get the real pwm duty cycle range (25-40000) for pin.
 		Returns duty cycle range if ok, or GpioBadUserGpio.
 		Details seem a bit complex"
 
@@ -1606,7 +1605,7 @@ RaspberryGpioDaemonInterface >> pinGetPwmRealRange: pin [
 
 { #category : 'Pin Handling' }
 RaspberryGpioDaemonInterface >> pinGetServoPulsewidth: pin [
-	"Get the servo puls width (0-range, default 255 max) for pin.
+"Get the servo puls width (0-range, default 255 max) for pin.
 		Returns pulse width if ok, or BadUserGpio or NotServoGpio.
 		Returns 0 (off), 500 (most anti-clockwise) to 2500 (most clockwise) if OK, otherwise BadUserGpio or GpioNotServoGpio.
 		#pin is the Broadcom pin number, aka gpio and userGpio.
@@ -1618,7 +1617,7 @@ RaspberryGpioDaemonInterface >> pinGetServoPulsewidth: pin [
 
 { #category : 'Pin Handling' }
 RaspberryGpioDaemonInterface >> pinRead: pin [
-	"Read the on/off value of 'pin'- 0 or 1 or GpioBadGpio."
+"Read the on/off value of 'pin'- 0 or 1 or GpioBadGpio."
 
 	^GpioRead callWith: id with: pin.
 
@@ -1626,7 +1625,6 @@ RaspberryGpioDaemonInterface >> pinRead: pin [
 
 { #category : 'Pin Handling' }
 RaspberryGpioDaemonInterface >> pinSetAsInput: pin [
-
 	"This sets the mode of a pin to INPUT"
 
 	^SetMode callWith: id with: pin with: GpioInput.
@@ -1635,7 +1633,6 @@ RaspberryGpioDaemonInterface >> pinSetAsInput: pin [
 
 { #category : 'Pin Handling' }
 RaspberryGpioDaemonInterface >> pinSetAsOutput: pin [
-
 	"This sets the mode of a pin to OUTPUT"
 
 	^SetMode callWith: id with: pin with: GpioOutput.
@@ -1644,7 +1641,7 @@ RaspberryGpioDaemonInterface >> pinSetAsOutput: pin [
 
 { #category : 'Pin Handling' }
 RaspberryGpioDaemonInterface >> pinSetAsPullDown: pin [
-	"Control the internal pull-up/down resistors on a GPIO pin.
+"Control the internal pull-up/down resistors on a GPIO pin.
 	Returns 0 if ok or GpioBadGpio, GpioBadPUD or GpioNotPermitted"
 
 	^SetPullUpDown callWith: id with: pin with: GpioPudDown.
@@ -1653,7 +1650,7 @@ RaspberryGpioDaemonInterface >> pinSetAsPullDown: pin [
 
 { #category : 'Pin Handling' }
 RaspberryGpioDaemonInterface >> pinSetAsPullUp: pin [
-	"Control the internal pull-up/down resistors on a GPIO pin.
+"Control the internal pull-up/down resistors on a GPIO pin.
 	Returns 0 if ok or GpioBadGpio, GpioBadPUD or GpioNotPermitted"
 
 	^SetPullUpDown callWith: id with: pin with: GpioPudUp.
@@ -1663,7 +1660,7 @@ RaspberryGpioDaemonInterface >> pinSetAsPullUp: pin [
 { #category : 'Pin Handling',
  #vaCategories : ['Pin Handling','Servo Control'] }
 RaspberryGpioDaemonInterface >> pinStopServo: gpioNum [
-	"stop a servo process on gpioNum"
+"stop a servo process on gpioNum"
 
 	^self setServoPin: gpioNum value: 0.
 
@@ -1671,7 +1668,7 @@ RaspberryGpioDaemonInterface >> pinStopServo: gpioNum [
 
 { #category : 'Primitives' }
 RaspberryGpioDaemonInterface >> platformRaspberryGpioStartIp: ipString port: portString [
-	"Make a connection to the daemon and return an id for later use.
+"Make a connection to the daemon and return an id for later use.
 	ipString can be nil for 'this raspberry' or a string with an IP address. Nil may be over-ridden by the PIGPIO_ADDR environment variable.
 	portString can be nil.
 	Returns >=0 if ok (use as id)"
@@ -1682,7 +1679,7 @@ RaspberryGpioDaemonInterface >> platformRaspberryGpioStartIp: ipString port: por
 
 { #category : 'Error Handling' }
 RaspberryGpioDaemonInterface >> raiseError: anErrorCode with: contextDescription [
-	"Raise a <PiGpioErrorException> with the code @anErrorCode and
+"Raise a <PiGpioErrorException> with the code @anErrorCode and
 	 @contextDescription to indicate what failed."
 	
 	self class raiseError: anErrorCode with: contextDescription.
@@ -1691,7 +1688,7 @@ RaspberryGpioDaemonInterface >> raiseError: anErrorCode with: contextDescription
 
 { #category : 'Setup' }
 RaspberryGpioDaemonInterface >> randomInt [
-	"Answer a random integer between 1 and 1,000,000,000."
+"Answer a random integer between 1 and 1,000,000,000."
 
 	^self class randomInt.
 
@@ -1699,7 +1696,7 @@ RaspberryGpioDaemonInterface >> randomInt [
 
 { #category : 'Primitives' }
 RaspberryGpioDaemonInterface >> raspberryGpioDaemonVersion [
-	"Return the pigpiod_if2 version."
+"Return the pigpiod_if2 version."
 
 	^RaspberryGpioDaemonVersion call.
 
@@ -1707,7 +1704,7 @@ RaspberryGpioDaemonInterface >> raspberryGpioDaemonVersion [
 
 { #category : 'Primitives' }
 RaspberryGpioDaemonInterface >> raspberryGpioErrorText: anInt [
-	"Answer the text description for the raspberryGpioError number."
+"Answer the text description for the raspberryGpioError number."
 
 	| errorTextPtr errorText |
 
@@ -1718,7 +1715,7 @@ RaspberryGpioDaemonInterface >> raspberryGpioErrorText: anInt [
 
 { #category : 'Primitives' }
 RaspberryGpioDaemonInterface >> raspberryGpioStartIp: ipString port: portString [
-	"Make a connection to the daemon and return an id for later use.
+"Make a connection to the daemon and return an id for later use.
 	ipString can be nil for 'this raspberry' or a string with an IP address. Nil may be over-ridden by the PIGPIO_ADDR environment variable.
 	portString can be nil.
 	Returns >=0 if ok (use as id)"
@@ -1752,7 +1749,7 @@ RaspberryGpioDaemonInterface >> raspberryGpioStartIp: ipString port: portString 
 
 { #category : 'Setup' }
 RaspberryGpioDaemonInterface >> raspberryGpioStop [
-	"RaspberryGpioDaemonInterface stop."
+"RaspberryGpioDaemonInterface stop."
 
 	id notNil ifTrue: [
 		[self waveStop; ultrasonicClose] on: Error do: [:sig | sig exitWith: nil].						"Stop sounds and the ultrasonic sub-library."
@@ -1764,7 +1761,7 @@ RaspberryGpioDaemonInterface >> raspberryGpioStop [
 
 { #category : 'Hardware' }
 RaspberryGpioDaemonInterface >> readBank1 [
-	"Read the levels of the bank 1 GPIO (GPIO 0-31).
+"Read the levels of the bank 1 GPIO (GPIO 0-31).
 
 		The returned 32 bit integer has a bit set if the corresponding GPIO is logic 1.  GPIO n has bit value (1<<n)."
 
@@ -1774,7 +1771,7 @@ RaspberryGpioDaemonInterface >> readBank1 [
 
 { #category : 'Hardware' }
 RaspberryGpioDaemonInterface >> readBank2 [
-	"Read the levels of the bank 2 GPIO (GPIO 32-53).
+"Read the levels of the bank 2 GPIO (GPIO 32-53).
 
 		The returned 32 bit integer has a bit set if the corresponding GPIO is logic 1.  GPIO n has bit value (1<<(n-32))."
 
@@ -1784,7 +1781,7 @@ RaspberryGpioDaemonInterface >> readBank2 [
 
 { #category : 'Pin Handling' }
 RaspberryGpioDaemonInterface >> readPin: pin [
-	"Read the on/off value of 'pin'- 0 or 1 or GpioBadGpio "
+"Read the on/off value of 'pin'- 0 or 1 or GpioBadGpio "
 
 	^GpioRead callWith: id with: pin.
 
@@ -1792,7 +1789,7 @@ RaspberryGpioDaemonInterface >> readPin: pin [
 
 { #category : 'Shutdown' }
 RaspberryGpioDaemonInterface >> release [
-	"Ask external library to perform any necessary cleanup.
+"Ask external library to perform any necessary cleanup.
 		We trap and ignore errors here because we assume the caller is done with this connection and just wants to clean things up."
 
 	allocatedDevices do: [:device |
@@ -1804,7 +1801,7 @@ RaspberryGpioDaemonInterface >> release [
 
 { #category : 'Shutdown' }
 RaspberryGpioDaemonInterface >> releaseDevice: device [
-	"Tell the device to release its resources."
+"Tell the device to release its resources."
 
 	^(device isNil) ifFalse: [device release].
 
@@ -1812,7 +1809,7 @@ RaspberryGpioDaemonInterface >> releaseDevice: device [
 
 { #category : 'I2C' }
 RaspberryGpioDaemonInterface >> releaseI2cBus: bus [
-	"Disconnect from the i2c device, freeing the handle etc.  Returns 0 if ok, otherwise GpioBadHandle."
+"Disconnect from the i2c device, freeing the handle etc.  Returns 0 if ok, otherwise GpioBadHandle."
 
 	^(bus isNil) ifFalse: [I2cClose callWith: id with: bus handle].
 
@@ -1820,7 +1817,7 @@ RaspberryGpioDaemonInterface >> releaseI2cBus: bus [
 
 { #category : 'SPI' }
 RaspberryGpioDaemonInterface >> releaseSpiBus: bus [
-	"Disconnect from the SPI device, freeing the handle etc.  Returns 0 if ok, otherwise GpioBadHandle."
+"Disconnect from the SPI device, freeing the handle etc.  Returns 0 if ok, otherwise GpioBadHandle."
 
 	^bus isNil ifFalse: [SpiClose callWith: id with: bus handle].
 
@@ -1828,7 +1825,7 @@ RaspberryGpioDaemonInterface >> releaseSpiBus: bus [
 
 { #category : 'Script' }
 RaspberryGpioDaemonInterface >> runScript: scriptId numPar: numPar param: param [
-	"This function runs a stored script.
+"This function runs a stored script.
 
 		scriptId: >=0, as returned by [*store_script*].
 		numPar: 0-10, the number of parameters.
@@ -1844,7 +1841,7 @@ RaspberryGpioDaemonInterface >> runScript: scriptId numPar: numPar param: param 
 
 { #category : 'Script' }
 RaspberryGpioDaemonInterface >> scriptStatus: scriptId param: param [
-	"This function returns the run status of a stored script as well as the current values of parameters 0 to 9.
+"This function returns the run status of a stored script as well as the current values of parameters 0 to 9.
 
 		scriptId: >=0, as returned by [*StoreScript*].
 		param: an array to hold the returned 10 parameters.
@@ -1861,7 +1858,7 @@ RaspberryGpioDaemonInterface >> scriptStatus: scriptId param: param [
 
 { #category : 'Serial' }
 RaspberryGpioDaemonInterface >> serialClose: handle [
-	"This function closes the serial device associated with handle.
+"This function closes the serial device associated with handle.
 
 		handle: >=0, as returned by a call to [*SerialOpen*].
 
@@ -1873,7 +1870,7 @@ RaspberryGpioDaemonInterface >> serialClose: handle [
 
 { #category : 'Serial' }
 RaspberryGpioDaemonInterface >> serialDataAvailable: handle [
-	"Returns the number of bytes available to be read from the device associated with handle.
+"Returns the number of bytes available to be read from the device associated with handle.
 
 		handle: >=0, as returned by a call to [*SerialOpen*].
 
@@ -1885,7 +1882,7 @@ RaspberryGpioDaemonInterface >> serialDataAvailable: handle [
 
 { #category : 'Serial' }
 RaspberryGpioDaemonInterface >> serialOpen: serialTty baud: baud serFlags: serFlags [
-	"This function opens a serial device at a specified baud rate with specified flags.  The device name must start with /dev/tty or /dev/serial.
+"This function opens a serial device at a specified baud rate with specified flags.  The device name must start with /dev/tty or /dev/serial.
 
 		serialTty: the serial device to open.
 		baud: the baud rate in bits per second, see below.
@@ -1903,7 +1900,7 @@ RaspberryGpioDaemonInterface >> serialOpen: serialTty baud: baud serFlags: serFl
 
 { #category : 'Serial' }
 RaspberryGpioDaemonInterface >> serialRead: handle buf: buf count: count [
-	"This function reads up to count bytes from the the serial port associated with handle and writes them to buf.
+"This function reads up to count bytes from the the serial port associated with handle and writes them to buf.
 
 		handle: >=0, as returned by a call to [*SerialOpen*].
 		buf: an array to receive the read data.
@@ -1919,7 +1916,7 @@ RaspberryGpioDaemonInterface >> serialRead: handle buf: buf count: count [
 
 { #category : 'Serial' }
 RaspberryGpioDaemonInterface >> serialReadByte: handle [
-	"This function reads a byte from the serial port associated with handle.
+"This function reads a byte from the serial port associated with handle.
 
 		handle: >=0, as returned by a call to [*SerialOpen*].
 
@@ -1933,7 +1930,7 @@ RaspberryGpioDaemonInterface >> serialReadByte: handle [
 
 { #category : 'Serial' }
 RaspberryGpioDaemonInterface >> serialWrite: handle buf: buf count: count [
-	"This function writes count bytes from buf to the the serial port associated with handle.
+"This function writes count bytes from buf to the the serial port associated with handle.
 
 		handle: >=0, as returned by a call to [*SerialOpen*].
 		buf: the array of bytes to write.
@@ -1947,7 +1944,7 @@ RaspberryGpioDaemonInterface >> serialWrite: handle buf: buf count: count [
 
 { #category : 'Serial' }
 RaspberryGpioDaemonInterface >> serialWriteByte: handle bVal: bVal [
-	"This function writes bVal to the serial port associated with handle.
+"This function writes bVal to the serial port associated with handle.
 
 		handle: >=0, as returned by a call to [*SerialOpen*].
 
@@ -1959,7 +1956,6 @@ RaspberryGpioDaemonInterface >> serialWriteByte: handle bVal: bVal [
 
 { #category : 'Pin Handling' }
 RaspberryGpioDaemonInterface >> setAsInputPin: pin [
-
 	"This sets the mode of a pin to INPUT"
 
 	^SetMode callWith: id with: pin with: GpioInput.
@@ -1968,7 +1964,6 @@ RaspberryGpioDaemonInterface >> setAsInputPin: pin [
 
 { #category : 'Pin Handling' }
 RaspberryGpioDaemonInterface >> setAsOutputPin: pin [
-
 	"This sets the mode of a pin to OUTPUT"
 
 	^SetMode callWith: id with: pin with: GpioOutput.
@@ -1977,7 +1972,7 @@ RaspberryGpioDaemonInterface >> setAsOutputPin: pin [
 
 { #category : 'Hardware' }
 RaspberryGpioDaemonInterface >> setBank1: bits [
-	"Sets GPIO 0-31 if the corresponding bit in bits is set.
+"Sets GPIO 0-31 if the corresponding bit in bits is set.
 
 		bits: a bit mask with 1 set if the corresponding GPIO is to be set.
 
@@ -1991,7 +1986,7 @@ RaspberryGpioDaemonInterface >> setBank1: bits [
 
 { #category : 'Hardware' }
 RaspberryGpioDaemonInterface >> setBank2: bits [
-	"Sets GPIO 32-53 if the corresponding bit (0-21) in bits is set.
+"Sets GPIO 32-53 if the corresponding bit (0-21) in bits is set.
 
 		bits: a bit mask with 1 set if the corresponding GPIO is to be set.
 
@@ -2005,7 +2000,7 @@ RaspberryGpioDaemonInterface >> setBank2: bits [
 
 { #category : 'Hardware' }
 RaspberryGpioDaemonInterface >> setGlitchFilter: userGpio steady: steady [
-	"Sets a glitch filter on a GPIO.
+"Sets a glitch filter on a GPIO.
 
 		Level changes on the GPIO are not reported unless the level has been stable for at least [*steady*] microseconds.
 		The level is then reported.  Level changes of less than [*steady*] microseconds are ignored.
@@ -2027,7 +2022,7 @@ RaspberryGpioDaemonInterface >> setGlitchFilter: userGpio steady: steady [
 
 { #category : 'Hardware' }
 RaspberryGpioDaemonInterface >> setNoiseFilter: userGpio steady: steady active: active [
-	"Sets a noise filter on a GPIO - Broadcom pin.
+"Sets a noise filter on a GPIO - Broadcom pin.
 
 		Level changes on the GPIO are ignored until a level which has been stable for [*steady*] microseconds is detected.
 		Level changes on the GPIO are then reported for [*active*] microseconds after which the process repeats.
@@ -2050,7 +2045,7 @@ RaspberryGpioDaemonInterface >> setNoiseFilter: userGpio steady: steady active: 
 
 { #category : 'Hardware' }
 RaspberryGpioDaemonInterface >> setPad: pad strength: padStrength [
-	"This function sets the pad drive strength in mA.
+"This function sets the pad drive strength in mA.
 
 		pad: 0-2, the pad to set.
 		padStrength: 1-16 mA.
@@ -2069,7 +2064,7 @@ RaspberryGpioDaemonInterface >> setPad: pad strength: padStrength [
 { #category : 'Pin Handling',
  #vaCategories : ['Pin Handling','Servo Control'] }
 RaspberryGpioDaemonInterface >> setPin: gpioNum direction: direction [
-	"Set the direction of the given pin.  See #pin:setMode:"
+"Set the direction of the given pin.  See #pin:setMode:"
 
 	^self pin: gpioNum setMode: direction.
 
@@ -2077,7 +2072,7 @@ RaspberryGpioDaemonInterface >> setPin: gpioNum direction: direction [
 
 { #category : 'PWM' }
 RaspberryGpioDaemonInterface >> setPin: pin pwmFrequency: freq [
-	"Set the pwm frequency to the nearest available value to freq for pin.
+"Set the pwm frequency to the nearest available value to freq for pin.
 	If cycle = 0, turn off pwm pulses for pin.
 	Returns actual selected frequency if ok, or GpioBadUSerGpio or GpioNotPermitted.
 	Available frequencies for the default 5uS sample rate are:-
@@ -2090,7 +2085,7 @@ RaspberryGpioDaemonInterface >> setPin: pin pwmFrequency: freq [
 
 { #category : 'Pin Handling' }
 RaspberryGpioDaemonInterface >> setPin: pin value: value [
-	"Set an output bit. 
+"Set an output bit. 
 
 		pin: 0-53
 		level: 0-1
@@ -2105,7 +2100,6 @@ RaspberryGpioDaemonInterface >> setPin: pin value: value [
 
 { #category : 'Pin Handling' }
 RaspberryGpioDaemonInterface >> setPinAsOutput: pin [
-
 	"This sets the mode of a pin to OUTPUT"
 
 	^SetMode callWith: id with: pin with: GpioOutput.
@@ -2114,7 +2108,7 @@ RaspberryGpioDaemonInterface >> setPinAsOutput: pin [
 
 { #category : 'PWM' }
 RaspberryGpioDaemonInterface >> setPwmPin: pin range: val [
-	"This sets the range of the pwm output - PiGPIO sets a user range and scales this to the 'real' range possible for the pin.
+"This sets the range of the pwm output - PiGPIO sets a user range and scales this to the 'real' range possible for the pin.
 		See also #readPwmRealRangePin: to find out what the actual range is use is.
 		Minimum allowed value is 25, max is 40,000.
 		Returns 0 if ok, or GpioBadUserGpio, GpioBadDutyRange or GpioNotPermitted"
@@ -2126,7 +2120,7 @@ RaspberryGpioDaemonInterface >> setPwmPin: pin range: val [
 
 { #category : 'PWM' }
 RaspberryGpioDaemonInterface >> setPwmPin: pin value: val [
-	"Set the pwm duty cycle (0-range, default 255 max) for pin.
+"Set the pwm duty cycle (0-range, default 255 max) for pin.
 	If cycle = 0, turn off pwm pulses for pin.
 	Returns 0 if ok, or GpioBadUSerGpio, GpioBadDutyCycle or GpioNotPermitted.
 	Use #id:pin:setPwmRange: to change the default range of 255.
@@ -2140,7 +2134,7 @@ RaspberryGpioDaemonInterface >> setPwmPin: pin value: val [
 
 { #category : 'PWM' }
 RaspberryGpioDaemonInterface >> setPwmRangePin: pin value: val [
-	"This sets the range of the pwm output - PiGPIO sets a user range and scales this to the 'real' range possible for the pin.
+"This sets the range of the pwm output - PiGPIO sets a user range and scales this to the 'real' range possible for the pin.
 		See also #readPwmRealRangePin: to find out what the actual range is use is.
 		Minimum allowed value is 25, max is 40,000.
 		Returns 0 if ok, or GpioBadUserGpio, GpioBadDutyRange or GpioNotPermitted"
@@ -2152,7 +2146,6 @@ RaspberryGpioDaemonInterface >> setPwmRangePin: pin value: val [
 
 { #category : 'Servo Control' }
 RaspberryGpioDaemonInterface >> setServoPin: pin value: val [
-
 	"send a servo attached to the pin a pulse of width val mSec - limit to 500-2500 mSec.
 	Updates at standard 50Hz.
 	If width = 0, turn off servo pulses for pin.
@@ -2168,7 +2161,7 @@ RaspberryGpioDaemonInterface >> setServoPin: pin value: val [
 
 { #category : 'Wave' }
 RaspberryGpioDaemonInterface >> setTonePin: pin value: freq [
-	"Write the frequency value to the given  pin -  pin 18 on a PiBrella, for example.
+"Write the frequency value to the given  pin -  pin 18 on a PiBrella, for example.
 	A really slow 'tone' to be visible on a default led of a Wombat breadboard -"
 	"RaspberryGpioDaemonInterface ensureStarted; setTonePin: 23 value: 10"
 	| delay pinVal |
@@ -2196,7 +2189,7 @@ RaspberryGpioDaemonInterface >> setTonePin: pin value: freq [
 { #category : 'Shutdown',
   #vaVisibility : 'private' }
 RaspberryGpioDaemonInterface >> setUpDeviceTracking [
-	"Set Up Device Tracking."
+"Set Up Device Tracking."
 
 	allocatedDevices := EsWeakIdentitySet new
 		owner: self;
@@ -2207,7 +2200,7 @@ RaspberryGpioDaemonInterface >> setUpDeviceTracking [
 
 { #category : 'Hardware' }
 RaspberryGpioDaemonInterface >> setWatchDog: userGpio timeout: timeout [
-	"Sets a WatchDog for a GPIO.
+"Sets a WatchDog for a GPIO.
 
 		userGpio: 0-31.
 		timeout: 0-60000.
@@ -2230,7 +2223,7 @@ RaspberryGpioDaemonInterface >> setWatchDog: userGpio timeout: timeout [
 
 { #category : 'Shutdown' }
 RaspberryGpioDaemonInterface >> shutDown [
-	"Ask external library to perform any necessary cleanup."
+"Ask external library to perform any necessary cleanup."
 
 	self release.
 
@@ -2238,7 +2231,7 @@ RaspberryGpioDaemonInterface >> shutDown [
 
 { #category : 'SPI' }
 RaspberryGpioDaemonInterface >> spiReadBus: bus buffer: buff count: count [
-	"low level spi read; SPI is a bit odd and requires writing bytes from a buffer and reads the same number backand needs a count.
+"low level spi read; SPI is a bit odd and requires writing bytes from a buffer and reads the same number backand needs a count.
 	Read 'count' bytes from the device.
 	Return number of bytes actually read (in case not all were) or GpioBadHandle, GpioBadSPICount or GpioSPIXferFailed"
 
@@ -2248,7 +2241,7 @@ RaspberryGpioDaemonInterface >> spiReadBus: bus buffer: buff count: count [
 
 { #category : 'SPI' }
 RaspberryGpioDaemonInterface >> spiSetup: channel speed: spiSpeed flags: flags [
-	"Open an SPI device - 'an instance of PiGpiodInterface spiOpen: 1 speed: 4000000 flags: 0' for example for PiFace Digital.
+"Open an SPI device - 'an instance of PiGpiodInterface spiOpen: 1 speed: 4000000 flags: 0' for example for PiFace Digital.
 	Return handle >=0 if OK, otherwise GpioBadSPIChannel, GpioBadSPISpeed, GpioBadFlags, GpioNoAuxSPI or GpioSPIOpenFailed"
 
 	^SpiOpen callWith: id with: channel with: spiSpeed with: flags.
@@ -2257,7 +2250,7 @@ RaspberryGpioDaemonInterface >> spiSetup: channel speed: spiSpeed flags: flags [
 
 { #category : 'SPI' }
 RaspberryGpioDaemonInterface >> spiTransferBus: bus txBuffer: buffTx rxBuffer: buffRx count: count [
-	"transfer 'count' bytes to/from the device.
+"transfer 'count' bytes to/from the device.
 	Return number of bytes actually transfered (in case not all were) or GpioBadHandle, GpioBadSPICount or GpioSPIXferFailed"
 
 	^SpiXfer callWith: id with: bus handle with: buffTx with: buffRx with: count.
@@ -2266,7 +2259,7 @@ RaspberryGpioDaemonInterface >> spiTransferBus: bus txBuffer: buffTx rxBuffer: b
 
 { #category : 'SPI' }
 RaspberryGpioDaemonInterface >> spiWriteBus: bus buffer: buff count: count [
-	"Write 'count' bytes to the device.
+"Write 'count' bytes to the device.
 	Return number of bytes actually transfered (in case not all were) or GpioBadHandle, GpioBadSPICount or GpioSPIXferFailed"
 
 	^SpiWrite callWith: id with: bus handle with: buff with: count.
@@ -2275,7 +2268,7 @@ RaspberryGpioDaemonInterface >> spiWriteBus: bus buffer: buff count: count [
 
 { #category : 'Script' }
 RaspberryGpioDaemonInterface >> stopScript: scriptId [
-	"This function stops a running script.
+"This function stops a running script.
 
 		scriptId: >=0, as returned by [*store_script*].
 
@@ -2287,7 +2280,7 @@ RaspberryGpioDaemonInterface >> stopScript: scriptId [
 
 { #category : 'Script' }
 RaspberryGpioDaemonInterface >> storeScript: script [
-	"This function stores a script for later execution.
+"This function stores a script for later execution.
 
 		See [[http://abyz.me.uk/rpi/pigpio/pigs.html#Scripts]] for details.
 
@@ -2301,7 +2294,7 @@ RaspberryGpioDaemonInterface >> storeScript: script [
 
 { #category : 'Hardware' }
 RaspberryGpioDaemonInterface >> timeSleep: seconds [
-	"Delay execution for a given number of seconds.
+"Delay execution for a given number of seconds.
 
 		seconds: the number of seconds to delay."
 
@@ -2311,7 +2304,7 @@ RaspberryGpioDaemonInterface >> timeSleep: seconds [
 
 { #category : 'Hardware' }
 RaspberryGpioDaemonInterface >> timeTime [
-	"time_time returns the current time in seconds since the Epoch, we return a DateAndTime."
+"time_time returns the current time in seconds since the Epoch, we return a DateAndTime."
 	| timeTime |
 
 	timeTime := TimeTime call.
@@ -2322,14 +2315,13 @@ RaspberryGpioDaemonInterface >> timeTime [
 
 { #category : 'Ultrasonic' }
 RaspberryGpioDaemonInterface >> ultrasonicClose [
-
 	self ultrasonicCloseId: id.
 
 ]
 
 { #category : 'Ultrasonic' }
 RaspberryGpioDaemonInterface >> ultrasonicCloseId: threadId [
-	"Close the ultrasonic thread."
+"Close the ultrasonic thread."
 
 	UltrasonicClose callWith: threadId.
 
@@ -2337,7 +2329,7 @@ RaspberryGpioDaemonInterface >> ultrasonicCloseId: threadId [
 
 { #category : 'Ultrasonic' }
 RaspberryGpioDaemonInterface >> ultrasonicDistance [
-	"ask the ultrasonic thread for the latest distance.
+"ask the ultrasonic thread for the latest distance.
 	Return -1 if no reading has been made, or the latest reading in centimeters"
 
 	^UltrasonicDistance callWith: id.
@@ -2346,7 +2338,7 @@ RaspberryGpioDaemonInterface >> ultrasonicDistance [
 
 { #category : 'Ultrasonic' }
 RaspberryGpioDaemonInterface >> ultrasonicDistanceId: threadId [
-	"Ask the ultrasonic thread for the latest distance.
+"Ask the ultrasonic thread for the latest distance.
 	Return -1 if no reading has been made, or the latest reading in centimeters"
 
 	^UltrasonicDistance callWith: threadId.
@@ -2355,7 +2347,7 @@ RaspberryGpioDaemonInterface >> ultrasonicDistanceId: threadId [
 
 { #category : 'Ultrasonic' }
 RaspberryGpioDaemonInterface >> ultrasonicTriggerOn: trig echoOn: echo [
-	"set the ultrasonic processing thread to use trig & echo pins.
+"set the ultrasonic processing thread to use trig & echo pins.
 	Return 1 if Ok or 0 if failed or already in use"
 
 	^UltrasonicInit callWith: id with: trig with: echo.
@@ -2364,7 +2356,7 @@ RaspberryGpioDaemonInterface >> ultrasonicTriggerOn: trig echoOn: echo [
 
 { #category : 'Script' }
 RaspberryGpioDaemonInterface >> updateScript: scriptId numPar: numPar param: param [
-	"This function sets the parameters of a script.  The script may or may not be running.
+"This function sets the parameters of a script.  The script may or may not be running.
 		The first numPar parameters of the script are overwritten with the new values.
 
 		scriptId: >=0, as returned by [*StoreScript*].
@@ -2381,7 +2373,7 @@ RaspberryGpioDaemonInterface >> updateScript: scriptId numPar: numPar param: par
 
 { #category : 'Event' }
 RaspberryGpioDaemonInterface >> waitForEdge: userGpio edge: edge timeout: seconds [
-	"This function waits for an edge on the GPIO for up to timeout seconds.
+"This function waits for an edge on the GPIO for up to timeout seconds.
 
 		userGpio 0-31.
 		edge: RisingEdge, FallingEdge or EitherEdge.
@@ -2400,7 +2392,7 @@ RaspberryGpioDaemonInterface >> waitForEdge: userGpio edge: edge timeout: second
 
 { #category : 'Event' }
 RaspberryGpioDaemonInterface >> waitForEvent: event timeout: seconds [
-	"This function waits for an event for up to timeout seconds.
+"This function waits for an event for up to timeout seconds.
 
 		event: 0-31.
 		timeout: >=0.
@@ -2415,7 +2407,7 @@ RaspberryGpioDaemonInterface >> waitForEvent: event timeout: seconds [
 
 { #category : 'Wave' }
 RaspberryGpioDaemonInterface >> waveAddNew [
-	"This function starts a new empty waveform.  You wouldn't normally need to call this function as
+"This function starts a new empty waveform.  You wouldn't normally need to call this function as
 		it is automatically called after a waveform is created with the [*wave_create*] function.
 
 		Returns 0 if OK."
@@ -2426,7 +2418,7 @@ RaspberryGpioDaemonInterface >> waveAddNew [
 
 { #category : 'Wave' }
 RaspberryGpioDaemonInterface >> waveAddPulses: arrayOfPulses [
-	"Given an array of OSGpioPulse, add them to the current wave.
+"Given an array of OSGpioPulse, add them to the current wave.
 	 The arrayOfPulses is a normal Smalltalk collection of instances of OSGpioPulse.
 	Returns number of total pulses in the current wave if ok or GpioTooManyPulses"
 	| osPulses pulseCnt |
@@ -2441,7 +2433,7 @@ RaspberryGpioDaemonInterface >> waveAddPulses: arrayOfPulses [
 
 { #category : 'Wave' }
 RaspberryGpioDaemonInterface >> waveAddPulseTriplets: arrayOfTriplets [
-	"Given an array of triplets of int, add them to the current wave.
+"Given an array of triplets of int, add them to the current wave.
 	 The arrayOfTriplets is a normal Smalltalk collection of integers, every three constitute a wave pulse.
 	Returns number of total pulses in the current wave if ok or GpioTooManyPulses"
 	| osPulses pulseCnt intCnt |
@@ -2457,7 +2449,7 @@ RaspberryGpioDaemonInterface >> waveAddPulseTriplets: arrayOfTriplets [
 
 { #category : 'Wave' }
 RaspberryGpioDaemonInterface >> waveAddSerial: userGpio baud: baud dataBits: dataBits stopBits: stopBits offset: offset str: str [
-	"This function adds a waveform representing serial data to the existing waveform (if any).  The serial data starts offset
+"This function adds a waveform representing serial data to the existing waveform (if any).  The serial data starts offset
 		microseconds from the start of the waveform.
 
 		userGpio: 0-31.
@@ -2491,7 +2483,7 @@ RaspberryGpioDaemonInterface >> waveAddSerial: userGpio baud: baud dataBits: dat
 
 { #category : 'Wave' }
 RaspberryGpioDaemonInterface >> waveChain: waveIds [
-	"This function transmits a chain of waveforms.
+"This function transmits a chain of waveforms.
 
 		NOTE: Any hardware PWM started by [*hardware_PWM*] will be cancelled.
 
@@ -2533,7 +2525,7 @@ RaspberryGpioDaemonInterface >> waveChain: waveIds [
 
 { #category : 'Wave' }
 RaspberryGpioDaemonInterface >> waveClear [
-	"Clear all waveforms from the wave buffers.
+"Clear all waveforms from the wave buffers.
 	 This function clears all waveforms and any data added by calls to the [*wave_add_**] functions."
 
 	^WaveClear callWith: id.
@@ -2542,7 +2534,7 @@ RaspberryGpioDaemonInterface >> waveClear [
 
 { #category : 'Wave' }
 RaspberryGpioDaemonInterface >> waveCreate [
-	"Create a waveform from the wave buffers.
+"Create a waveform from the wave buffers.
 	Return a wave id >= 0 if ok, otherwise GpioEmptyWaveform, GpioTooManyCBS, GpioTooManyOOL or GpioNoWaveformID "
 
 	^WaveCreate callWith: id.
@@ -2551,7 +2543,7 @@ RaspberryGpioDaemonInterface >> waveCreate [
 
 { #category : 'Wave' }
 RaspberryGpioDaemonInterface >> waveDelete: waveId [
-	"This function deletes the waveform with id waveId.
+"This function deletes the waveform with id waveId.
 
 		waveId: >=0, as returned by [*wave_create*].
 		Wave ids are allocated in order, 0, 1, 2, etc.
@@ -2568,7 +2560,7 @@ RaspberryGpioDaemonInterface >> waveDelete: waveId [
 
 { #category : 'Wave' }
 RaspberryGpioDaemonInterface >> waveGetCbs [
-	"This function returns the length in DMA control blocks of the current waveform."
+"This function returns the length in DMA control blocks of the current waveform."
 
 	^WaveGetCbs callWith: id.
 
@@ -2576,7 +2568,7 @@ RaspberryGpioDaemonInterface >> waveGetCbs [
 
 { #category : 'Wave' }
 RaspberryGpioDaemonInterface >> waveGetHighCbs [
-	"This function returns the length in DMA control blocks of the longest waveform created since the pigpio daemon was started."
+"This function returns the length in DMA control blocks of the longest waveform created since the pigpio daemon was started."
 
 	^WaveGetHighCbs callWith: id.
 
@@ -2584,7 +2576,7 @@ RaspberryGpioDaemonInterface >> waveGetHighCbs [
 
 { #category : 'Wave' }
 RaspberryGpioDaemonInterface >> waveGetHighMicros [
-	"This function returns the length in microseconds of the longest waveform created since the pigpio daemon was started."
+"This function returns the length in microseconds of the longest waveform created since the pigpio daemon was started."
 
 	^WaveGetHighMicros callWith: id.
 
@@ -2592,7 +2584,7 @@ RaspberryGpioDaemonInterface >> waveGetHighMicros [
 
 { #category : 'Wave' }
 RaspberryGpioDaemonInterface >> waveGetHighPulses [
-	"This function returns the length in pulses of the longest waveform created since the pigpio daemon was started."
+"This function returns the length in pulses of the longest waveform created since the pigpio daemon was started."
 
 	^WaveGetHighPulses callWith: id.
 
@@ -2600,7 +2592,7 @@ RaspberryGpioDaemonInterface >> waveGetHighPulses [
 
 { #category : 'Wave' }
 RaspberryGpioDaemonInterface >> waveGetMaxCbs [
-	"This function returns the maximum possible size of a waveform in DMA control blocks."
+"This function returns the maximum possible size of a waveform in DMA control blocks."
 
 	^WaveGetMaxCbs callWith: id.
 
@@ -2608,7 +2600,7 @@ RaspberryGpioDaemonInterface >> waveGetMaxCbs [
 
 { #category : 'Wave' }
 RaspberryGpioDaemonInterface >> waveGetMaxMicros [
-	"This function returns the maximum possible size of a waveform in microseconds."
+"This function returns the maximum possible size of a waveform in microseconds."
 
 	^WaveGetMaxMicros callWith: id.
 
@@ -2616,7 +2608,7 @@ RaspberryGpioDaemonInterface >> waveGetMaxMicros [
 
 { #category : 'Wave' }
 RaspberryGpioDaemonInterface >> waveGetMaxPulses [
-	"This function returns the maximum possible size of a waveform in pulses."
+"This function returns the maximum possible size of a waveform in pulses."
 
 	^WaveGetMaxPulses callWith: id.
 
@@ -2624,7 +2616,7 @@ RaspberryGpioDaemonInterface >> waveGetMaxPulses [
 
 { #category : 'Wave' }
 RaspberryGpioDaemonInterface >> waveGetMicros [
-	"This function returns the length in microseconds of the current waveform."
+"This function returns the length in microseconds of the current waveform."
 
 	^WaveGetMicros callWith: id.
 
@@ -2632,7 +2624,7 @@ RaspberryGpioDaemonInterface >> waveGetMicros [
 
 { #category : 'Wave' }
 RaspberryGpioDaemonInterface >> waveGetPulses [
-	"This function returns the length in pulses of the current waveform."
+"This function returns the length in pulses of the current waveform."
 
 	^WaveGetPulses callWith: id.
 
@@ -2640,7 +2632,7 @@ RaspberryGpioDaemonInterface >> waveGetPulses [
 
 { #category : 'Wave' }
 RaspberryGpioDaemonInterface >> waveSendOnce: waveId [
-	"This function transmits the waveform with id waveId.  The waveform is sent once.
+"This function transmits the waveform with id waveId.  The waveform is sent once.
 
 		NOTE: Any hardware PWM started by [*hardware_PWM*] will be cancelled.
 
@@ -2654,7 +2646,7 @@ RaspberryGpioDaemonInterface >> waveSendOnce: waveId [
 
 { #category : 'Wave' }
 RaspberryGpioDaemonInterface >> waveSendRepeat: waveId [
-	"play the waveId.
+"play the waveId.
 	Returns number of control blocks in the current wave if ok, or GpioBadWaveID or GpioBadWaveMode."
 
 	^WaveSendRepeat callWith: id with: waveId.
@@ -2663,7 +2655,7 @@ RaspberryGpioDaemonInterface >> waveSendRepeat: waveId [
 
 { #category : 'Wave' }
 RaspberryGpioDaemonInterface >> waveStop [
-	"RaspberryGpioDaemonInterface ensureStarted; waveStop"
+"RaspberryGpioDaemonInterface ensureStarted; waveStop"
 
 	WaveTxStop callWith: id.
 
@@ -2671,7 +2663,7 @@ RaspberryGpioDaemonInterface >> waveStop [
 
 { #category : 'Wave' }
 RaspberryGpioDaemonInterface >> waveTxAt [
-	"This function returns the id of the waveform currently being transmitted.
+"This function returns the id of the waveform currently being transmitted.
 
 		Returns the waveform id or one of the following special values:
 
@@ -2684,7 +2676,7 @@ RaspberryGpioDaemonInterface >> waveTxAt [
 
 { #category : 'Wave' }
 RaspberryGpioDaemonInterface >> waveTxBusy [
-	"This function checks to see if a waveform is currently being transmitted.
+"This function checks to see if a waveform is currently being transmitted.
 		WaveTxBusy (wave_tx_busy) returns 1 if a waveform is currently being transmitted, otherwise 0, we return true/false."
 
 	^(WaveTxBusy callWith: id) = 1.
@@ -2693,7 +2685,7 @@ RaspberryGpioDaemonInterface >> waveTxBusy [
 
 { #category : 'Wave' }
 RaspberryGpioDaemonInterface >> waveTxSend: waveId mode: mode [
-	"Transmits the waveform with id waveId using mode mode.
+"Transmits the waveform with id waveId using mode mode.
 
 		waveId: >=0, as returned by [*wave_create*].
 		mode: WaveModeOneShot, WaveModeRepeat, WaveModeOneShotSync or WaveModeRepeatSync.
@@ -2714,7 +2706,7 @@ RaspberryGpioDaemonInterface >> waveTxSend: waveId mode: mode [
 
 { #category : 'Wave' }
 RaspberryGpioDaemonInterface >> waveTxStop [
-	"Aborts the current waveform."
+"Aborts the current waveform."
 
 	^WaveTxStop callWith: id.
 

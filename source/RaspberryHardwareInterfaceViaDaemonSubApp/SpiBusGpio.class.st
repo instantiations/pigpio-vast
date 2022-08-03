@@ -6,7 +6,7 @@ Class {
 
 { #category : 'Not categorized' }
 SpiBusGpio class >> new [
-	"#new cannot be used to create a GpioSerialBus or its sub classes.
+"#new cannot be used to create a GpioSerialBus or its sub classes.
 		See RaspberryGpioDaemonInterface>createI2cBus: for I2CGpioSerialBus and
 		RaspberryGpioDaemonInterface>createSpiBusChannel:speed:flags: for SPIGpioSerialBus."
 
@@ -16,7 +16,7 @@ SpiBusGpio class >> new [
 
 { #category : 'initialize-release' }
 SpiBusGpio >> interface: aRaspberryGpioDaemonInterface handle: aHandle [
-	"Set our data.  If any of the data is set we exit without making changes.
+"Set our data.  If any of the data is set we exit without making changes.
 		This method should only be called from an instance of RaspberryGpioDaemonInterface by #createSpiBusChannel:speed:flags:"
 
 	(library isNil & handle isNil) ifTrue: [
@@ -28,7 +28,7 @@ SpiBusGpio >> interface: aRaspberryGpioDaemonInterface handle: aHandle [
 
 { #category : 'read/write' }
 SpiBusGpio >> readBytesUsingBuffer: txBuffer [
-	"Read count bytes into a buffer from the spi device/channel"
+"Read count bytes into a buffer from the spi device/channel"
 	| rxBuffer |
 
 	rxBuffer := ByteArray new: txBuffer size.
@@ -39,7 +39,7 @@ SpiBusGpio >> readBytesUsingBuffer: txBuffer [
 
 { #category : 'read/write' }
 SpiBusGpio >> readNumBytes: count [
-	"Read count bytes into a buffer from the spi device/channel"
+"Read count bytes into a buffer from the spi device/channel"
 	| byteArrayBuffer |
 
 	byteArrayBuffer := ByteArray new: count.
@@ -50,7 +50,7 @@ SpiBusGpio >> readNumBytes: count [
 
 { #category : 'initialize-release' }
 SpiBusGpio >> release [
-	"Close the SPI connection and release the handle"
+"Close the SPI connection and release the handle"
 
 	library releaseSpiBus: self.
 	handle := nil.
@@ -59,7 +59,7 @@ SpiBusGpio >> release [
 
 { #category : 'read/write' }
 SpiBusGpio >> writeBytes: byteArrayBuffer [
-	"Write bytes from a buffer to the spi device/channel"
+"Write bytes from a buffer to the spi device/channel"
 
 	library spiWriteBus: self buffer: byteArrayBuffer count: byteArrayBuffer size.
 

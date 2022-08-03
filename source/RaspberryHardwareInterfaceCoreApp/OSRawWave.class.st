@@ -6,7 +6,7 @@ Class {
 
 { #category : 'Not categorized' }
 OSRawWave class >> fromArray: anArray [
-	"Create a new instance and set the values.  If there is more than one pulse, answer an array with the pulses."
+"Create a new instance and set the values.  If there is more than one pulse, answer an array with the pulses."
 	| pulseCnt pulses aCnt |
 
 	aCnt := anArray size.
@@ -29,7 +29,7 @@ OSRawWave class >> fromArray: anArray [
 
 { #category : 'Not categorized' }
 OSRawWave class >> gpioOn: on gpioOff: off usDelay: delay flags: flags [
-	"Create a new instance and set the values."
+"Create a new instance and set the values."
 
 	^self new gpioOn: on; gpioOff: off; usDelay: delay; flags: flags; yourself.
 
@@ -38,7 +38,7 @@ OSRawWave class >> gpioOn: on gpioOff: off usDelay: delay flags: flags [
 { #category : 'Not categorized',
   #vaVisibility : 'private' }
 OSRawWave class >> initializeAfterLoad [
-	"Initialize our size and members."
+"Initialize our size and members."
 
 	self
 		members: #(gpioOn gpioOff usDelay flags)
@@ -48,7 +48,7 @@ OSRawWave class >> initializeAfterLoad [
 
 { #category : 'Not categorized' }
 OSRawWave >> flags [
-	"Answer the value of flags."
+"Answer the value of flags."
 
 	^self uint32At: #flags.
 
@@ -56,7 +56,7 @@ OSRawWave >> flags [
 
 { #category : 'Not categorized' }
 OSRawWave >> flags: anInt [
-	"Set the value of flags."
+"Set the value of flags."
 
 	^self uint32At: #flags put: anInt.
 
@@ -64,7 +64,7 @@ OSRawWave >> flags: anInt [
 
 { #category : 'Not categorized' }
 OSRawWave >> gpioOff [
-	"Answer the value of gpioOff."
+"Answer the value of gpioOff."
 
 	^self uint32At: #gpioOff.
 
@@ -72,7 +72,7 @@ OSRawWave >> gpioOff [
 
 { #category : 'Not categorized' }
 OSRawWave >> gpioOff: anInt [
-	"Set the value of gpioOff."
+"Set the value of gpioOff."
 
 	^self uint32At: #gpioOff put: anInt.
 
@@ -80,7 +80,7 @@ OSRawWave >> gpioOff: anInt [
 
 { #category : 'Not categorized' }
 OSRawWave >> gpioOn [
-	"Answer the value of gpioOn."
+"Answer the value of gpioOn."
 
 	^self uint32At: #gpioOn.
 
@@ -88,7 +88,7 @@ OSRawWave >> gpioOn [
 
 { #category : 'Not categorized' }
 OSRawWave >> gpioOn: anInt [
-	"Set the value of gpioOn."
+"Set the value of gpioOn."
 
 	^self uint32At: #gpioOn put: anInt.
 
@@ -96,7 +96,7 @@ OSRawWave >> gpioOn: anInt [
 
 { #category : 'Not categorized' }
 OSRawWave >> usDelay [
-	"Answer the value of usDelay."
+"Answer the value of usDelay."
 
 	^self uint32At: #usDelay.
 
@@ -104,7 +104,7 @@ OSRawWave >> usDelay [
 
 { #category : 'Not categorized' }
 OSRawWave >> usDelay: anInt [
-	"Set the value of usDelay."
+"Set the value of usDelay."
 
 	^self uint32At: #usDelay put: anInt.
 

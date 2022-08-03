@@ -6,7 +6,6 @@ Class {
 
 { #category : 'Not categorized' }
 TestOneWireDS18B20ThermometerDevice class >> dumpTemperatureFetchingOn: aWriteStream [
-
 	aWriteStream
 		nextPutAll: Time now printString;
 		nextPutAll: ': '.
@@ -31,13 +30,12 @@ TestOneWireDS18B20ThermometerDevice class >> dumpTemperatureFetchingOn: aWriteSt
 
 { #category : 'Not categorized' }
 TestOneWireDS18B20ThermometerDevice class >> dumpTemperatureFetchingOnTranscript [
-
 	self dumpTemperatureFetchingOn: Transcript
 ]
 
 { #category : 'Not categorized' }
 TestOneWireDS18B20ThermometerDevice class >> fetchTemperature [
-	"Answers the temperature as Celsius and as a Float"
+"Answers the temperature as Celsius and as a Float"
 
 	| devices |
 

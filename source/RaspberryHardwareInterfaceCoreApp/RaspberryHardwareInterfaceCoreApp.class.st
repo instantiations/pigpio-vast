@@ -12,7 +12,6 @@ Class {
 
 { #category : 'Pool Dictionaries' }
 RaspberryHardwareInterfaceCoreApp class >> _PRAGMA_RaspberryGpioConstants [
-
 	"%%PRAGMA DECLARE
 	(name: RaspberryGpioConstants isPool: true)
 	(pool: RaspberryGpioConstants declarations: (
@@ -545,7 +544,6 @@ RaspberryHardwareInterfaceCoreApp class >> _PRAGMA_RaspberryGpioConstants [
 
 { #category : 'Pool Dictionaries' }
 RaspberryHardwareInterfaceCoreApp class >> _PRAGMA_RaspberryGpioDaemonFunctions [
-
 	"%%PRAGMA DECLARE
 	(name: RaspberryGpioDaemonFunctions isPool: true)
 	(pool: RaspberryGpioDaemonFunctions declarations: (
@@ -686,7 +684,6 @@ RaspberryHardwareInterfaceCoreApp class >> _PRAGMA_RaspberryGpioDaemonFunctions 
 
 { #category : 'Pool Dictionaries' }
 RaspberryHardwareInterfaceCoreApp class >> _PRAGMA_RaspberryGpioFunctions [
-
 	"%%PRAGMA DECLARE
 	(name: RaspberryGpioFunctions isPool: true)
 	(pool: RaspberryGpioFunctions declarations: (
@@ -860,7 +857,6 @@ RaspberryHardwareInterfaceCoreApp class >> _PRAGMA_RaspberryGpioFunctions [
 
 { #category : 'Pool Dictionaries' }
 RaspberryHardwareInterfaceCoreApp class >> _PRAGMA_RaspberryGpioUltrasonicDaemonFunctions [
-
 	"%%PRAGMA DECLARE
 	(name: RaspberryGpioUltrasonicDaemonFunctions isPool: true)
 	(pool: RaspberryGpioUltrasonicDaemonFunctions declarations: (
@@ -874,6 +870,5 @@ RaspberryHardwareInterfaceCoreApp class >> _PRAGMA_RaspberryGpioUltrasonicDaemon
 { #category : 'Testing',
   #vaVisibility : 'private' }
 RaspberryHardwareInterfaceCoreApp class >> abtIsViewApplication [
-
 	^false
 ]

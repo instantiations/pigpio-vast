@@ -35,43 +35,43 @@ Class {
 
 { #category : 'device read/write' }
 I2cDeviceLSM9DS1IMUSensor >> accelerometerX [
-	"read the raw x values from the accelerometer"
+"read the raw x values from the accelerometer"
 	^self readAccelerometerRawX * accelerometerScale
 ]
 
 { #category : 'device read/write' }
 I2cDeviceLSM9DS1IMUSensor >> accelerometerY [
-	"read the raw x values from the accelerometer"
+"read the raw x values from the accelerometer"
 	^self readAccelerometerRawY * accelerometerScale
 ]
 
 { #category : 'device read/write' }
 I2cDeviceLSM9DS1IMUSensor >> accelerometerZ [
-	"read the raw x values from the accelerometer"
+"read the raw x values from the accelerometer"
 	^self readAccelerometerRawZ * accelerometerScale
 ]
 
 { #category : 'device read/write' }
 I2cDeviceLSM9DS1IMUSensor >> gyroX [
-	"return the floating point value of the gyro current reading"
+"return the floating point value of the gyro current reading"
 	^ self readGyroRawX * gyroScale
 ]
 
 { #category : 'device read/write' }
 I2cDeviceLSM9DS1IMUSensor >> gyroY [
-	"return the floating point value of the gyro current reading"
+"return the floating point value of the gyro current reading"
 	^ self readGyroRawY * gyroScale
 ]
 
 { #category : 'device read/write' }
 I2cDeviceLSM9DS1IMUSensor >> gyroZ [
-	"return the floating point value of the gyro current reading"
+"return the floating point value of the gyro current reading"
 	^ self readGyroRawZ * gyroScale
 ]
 
 { #category : 'initialize-release' }
 I2cDeviceLSM9DS1IMUSensor >> initialize [
-	"set some values that should really be derived from a config file; later, young Padawan"
+"set some values that should really be derived from a config file; later, young Padawan"
 	chosenGyroSampleRate := 2.
 	chosenGyroBandWidth := 1.
 	chosenGyroFSR := 1.
@@ -83,7 +83,7 @@ I2cDeviceLSM9DS1IMUSensor >> initialize [
 
 { #category : 'initialize-release' }
 I2cDeviceLSM9DS1IMUSensor >> initializeRegisters [
-	"check the whoAmI value"
+"check the whoAmI value"
 
 	bus whoAmI = self whoAmI
 		ifTrue: ["power up, set data rate"
@@ -97,7 +97,7 @@ I2cDeviceLSM9DS1IMUSensor >> initializeRegisters [
 
 { #category : 'device read/write' }
 I2cDeviceLSM9DS1IMUSensor >> readAccelerometerRaw [
-	"read the raw x,y,z values from the accelerometer"
+"read the raw x,y,z values from the accelerometer"
 
 	accelerometerX := bus registerPairSigned: AccelerometerXOutputRegister.
 	accelerometerY := bus registerPairSigned: AccelerometerYOutputRegister.
@@ -107,7 +107,7 @@ I2cDeviceLSM9DS1IMUSensor >> readAccelerometerRaw [
 
 { #category : 'device read/write' }
 I2cDeviceLSM9DS1IMUSensor >> readAccelerometerRawX [
-	"read the raw x values from the accelerometer"
+"read the raw x values from the accelerometer"
 
 	^accelerometerX := bus registerPairSigned: AccelerometerXOutputRegister.
 
@@ -115,7 +115,7 @@ I2cDeviceLSM9DS1IMUSensor >> readAccelerometerRawX [
 
 { #category : 'device read/write' }
 I2cDeviceLSM9DS1IMUSensor >> readAccelerometerRawY [
-	"read the raw y values from the accelerometer"
+"read the raw y values from the accelerometer"
 
 	^accelerometerY := bus registerPairSigned: AccelerometerYOutputRegister.
 
@@ -123,7 +123,7 @@ I2cDeviceLSM9DS1IMUSensor >> readAccelerometerRawY [
 
 { #category : 'device read/write' }
 I2cDeviceLSM9DS1IMUSensor >> readAccelerometerRawZ [
-	"read the raw z values from the accelerometer"
+"read the raw z values from the accelerometer"
 
 	^accelerometerZ := bus registerPairSigned: AccelerometerZOutputRegister.
 
@@ -131,7 +131,7 @@ I2cDeviceLSM9DS1IMUSensor >> readAccelerometerRawZ [
 
 { #category : 'device read/write' }
 I2cDeviceLSM9DS1IMUSensor >> readGyroRaw [
-	"read the raw x,y,z values from the gyro"
+"read the raw x,y,z values from the gyro"
 
 	gyroX := bus registerPairSigned: GyroXOutputRegister.
 	gyroY := bus registerPairSigned: GyroYOutputRegister.
@@ -141,7 +141,7 @@ I2cDeviceLSM9DS1IMUSensor >> readGyroRaw [
 
 { #category : 'device read/write' }
 I2cDeviceLSM9DS1IMUSensor >> readGyroRawX [
-	"read the raw x values from the gyro"
+"read the raw x values from the gyro"
 
 	^gyroX := bus registerPairSigned: GyroXOutputRegister.
 
@@ -149,7 +149,7 @@ I2cDeviceLSM9DS1IMUSensor >> readGyroRawX [
 
 { #category : 'device read/write' }
 I2cDeviceLSM9DS1IMUSensor >> readGyroRawY [
-	"read the raw y values from the gyro"
+"read the raw y values from the gyro"
 
 	^gyroY := bus registerPairSigned: GyroYOutputRegister.
 
@@ -157,7 +157,7 @@ I2cDeviceLSM9DS1IMUSensor >> readGyroRawY [
 
 { #category : 'device read/write' }
 I2cDeviceLSM9DS1IMUSensor >> readGyroRawZ [
-	"read the raw z values from the gyro"
+"read the raw z values from the gyro"
 
 	^gyroZ := bus registerPairSigned: GyroZOutputRegister.
 
@@ -165,7 +165,7 @@ I2cDeviceLSM9DS1IMUSensor >> readGyroRawZ [
 
 { #category : 'initialize-release' }
 I2cDeviceLSM9DS1IMUSensor >> setAccelCtrl6 [
-	"set the accelerometer sample rate etc"
+"set the accelerometer sample rate etc"
 
 	accelerometerScale := #( 0.000061 0.000122 0.000244 0.000732) at: chosenAccelerometerFSR.
 	bus register: GyroCtrlRegister6 value: (chosenAccelerometerSampleRate << 5 bitOr: (chosenAccelerometerFSR << 3 bitOr: (chosenAccelerometerLPF))).
@@ -174,7 +174,7 @@ I2cDeviceLSM9DS1IMUSensor >> setAccelCtrl6 [
 
 { #category : 'initialize-release' }
 I2cDeviceLSM9DS1IMUSensor >> setAccelCtrl7 [
-	"set the ctrl7 reg to 0"
+"set the ctrl7 reg to 0"
 
 	bus register: GyroCtrlRegister7 value: 0.
 
@@ -182,7 +182,7 @@ I2cDeviceLSM9DS1IMUSensor >> setAccelCtrl7 [
 
 { #category : 'initialize-release' }
 I2cDeviceLSM9DS1IMUSensor >> setGyroBias [
-	"set upsome gyro calculation values"
+"set upsome gyro calculation values"
 	gyroLearningAlpha := 2.0 /sampleRate.
 	gyroContinuousAlpha := 0.01 / sampleRate.
 	gyroSampleCount := 0
@@ -190,7 +190,7 @@ I2cDeviceLSM9DS1IMUSensor >> setGyroBias [
 
 { #category : 'initialize-release' }
 I2cDeviceLSM9DS1IMUSensor >> setGyroCtrl1 [
-	"power up the gyro and set the sampling rate"
+"power up the gyro and set the sampling rate"
 	| value |
 	value := 16r20 * chosenGyroSampleRate.
 	sampleRate := #(15 60 119 238 476 952) at: chosenGyroSampleRate.
@@ -204,7 +204,7 @@ I2cDeviceLSM9DS1IMUSensor >> setGyroCtrl1 [
 
 { #category : 'initialize-release' }
 I2cDeviceLSM9DS1IMUSensor >> setGyroCtrl3 [
-	"set the high pass filter"
+"set the high pass filter"
 
 	bus register: GyroCtrlRegister3 value: (16r40 bitOr: chosenGyroHPF).
 
@@ -212,6 +212,6 @@ I2cDeviceLSM9DS1IMUSensor >> setGyroCtrl3 [
 
 { #category : 'initialize-release' }
 I2cDeviceLSM9DS1IMUSensor >> whoAmI [
-	"what is the ID byte value for one of me"
+"what is the ID byte value for one of me"
 	^16r68 "per the STI data sheet"
 ]

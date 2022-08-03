@@ -15,7 +15,7 @@ Class {
 
 { #category : 'Not categorized' }
 GpioDevice class >> new [
-	"#new cannot be used to create a GpioDevice.
+"#new cannot be used to create a GpioDevice.
 		To create a new instance of GpioDeviceDRV8835MotorDrive,
 			call RaspberryGpioDaemonInterface>createGpioDeviceDRV8835MotorDrive:directionPin:.
 		To create a new instance of GpioDeviceHBridge,

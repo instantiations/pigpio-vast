@@ -6,7 +6,7 @@ Class {
 
 { #category : 'Hooks' }
 RaspberryHardwareInterfaceViaDaemonSubApp class >> loaded [
-	"Execute the code in the method comment to create and save the source for the method."
+"Execute the code in the method comment to create and save the source for the method."
 	"Initialize things just after being loaded."
 	"Initialize parts."
 
@@ -17,7 +17,7 @@ RaspberryHardwareInterfaceViaDaemonSubApp class >> loaded [
 
 { #category : 'Error Handling' }
 RaspberryHardwareInterfaceViaDaemonSubApp class >> lookUpAndRaiseError: anErrorCode [
-	"Raise a <RaspberryGpioErrorException> with the code @anErrorCode and
+"Raise a <RaspberryGpioErrorException> with the code @anErrorCode and
 	 look up the error code to indicate what failed."
 
 	| errDesc |
@@ -28,7 +28,7 @@ RaspberryHardwareInterfaceViaDaemonSubApp class >> lookUpAndRaiseError: anErrorC
 
 { #category : 'Error Handling' }
 RaspberryHardwareInterfaceViaDaemonSubApp class >> lookUpAndRaiseError: anErrorCode with: contextDescription [
-	"Raise a <RaspberryGpioErrorException> with the code @anErrorCode and
+"Raise a <RaspberryGpioErrorException> with the code @anErrorCode and
 	 look up the error code and append @contextDescription to it to indicate what failed."
 
 	| errDesc |
@@ -39,7 +39,7 @@ RaspberryHardwareInterfaceViaDaemonSubApp class >> lookUpAndRaiseError: anErrorC
 
 { #category : 'Error Handling' }
 RaspberryHardwareInterfaceViaDaemonSubApp class >> raiseError: anErrorCode with: contextDescription [
-	"Raise a <RaspberryGpioErrorException> with the code @anErrorCode and
+"Raise a <RaspberryGpioErrorException> with the code @anErrorCode and
 		@contextDescription to indicate what failed."
 
 	RaspberryGpioErrorException signalWith: anErrorCode -> contextDescription
@@ -47,7 +47,7 @@ RaspberryHardwareInterfaceViaDaemonSubApp class >> raiseError: anErrorCode with:
 
 { #category : 'Error Handling' }
 RaspberryHardwareInterfaceViaDaemonSubApp class >> raspberryGpioErrorText: anInt [
-	"Answer the text description for the raspberryGpioError number."
+"Answer the text description for the raspberryGpioError number."
 
 	| errorTextPtr errorText |
 
@@ -58,7 +58,7 @@ RaspberryHardwareInterfaceViaDaemonSubApp class >> raspberryGpioErrorText: anInt
 
 { #category : 'Hooks' }
 RaspberryHardwareInterfaceViaDaemonSubApp class >> shutDown [
-	"Send #shutDown to the classes that want it."
+"Send #shutDown to the classes that want it."
 
 	RaspberryGpioDaemonInterface shutDown.
 

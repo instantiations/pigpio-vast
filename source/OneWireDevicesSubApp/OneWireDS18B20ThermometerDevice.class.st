@@ -57,13 +57,13 @@ Class {
 
 { #category : 'accessing' }
 OneWireDS18B20ThermometerDevice class >> familyType [
-	"which 1wire family type do I support"
+"which 1wire family type do I support"
 	^16r28
 ]
 
 { #category : 'device values' }
 OneWireDS18B20ThermometerDevice >> temperature [
-	"Answer the current temperature value of this device. It is possible the device may not have reported a correct list of data, so return 999 as a placeholder"
+"Answer the current temperature value of this device. It is possible the device may not have reported a correct list of data, so return 999 as a placeholder"
 	| file data pos tStr |
 
 	file := CfsReadFileStream open: devFilePath.

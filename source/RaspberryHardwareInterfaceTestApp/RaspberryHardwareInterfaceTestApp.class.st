@@ -7,6 +7,5 @@ Class {
 { #category : 'Testing',
   #vaVisibility : 'private' }
 RaspberryHardwareInterfaceTestApp class >> abtIsViewApplication [
-
 	^true
 ]

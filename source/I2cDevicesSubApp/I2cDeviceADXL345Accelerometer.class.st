@@ -33,7 +33,7 @@ Class {
 
 { #category : 'Not categorized' }
 I2cDeviceADXL345Accelerometer class >> defaultI2CAddress [
-	"You can check this by executing this in your linux:
+"You can check this by executing this in your linux:
 	 
 pi@marianopi3:~ $ sudo i2cdetect -y 1
 	 0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
@@ -52,7 +52,7 @@ pi@marianopi3:~ $ sudo i2cdetect -y 1
 
 { #category : 'initialize-release' }
 I2cDeviceADXL345Accelerometer >> initializeRegisters [
-	"The code is based from C:
+"The code is based from C:
 	https://www.sunfounder.com/learn/Super_Kit_V2_for_RaspberryPi/lesson-14-adxl345-super-kit-for-raspberrypi.html"
 
 	bus
@@ -78,7 +78,7 @@ I2cDeviceADXL345Accelerometer >> initializeRegisters [
 
 { #category : 'API' }
 I2cDeviceADXL345Accelerometer >> readCoordinates [
-	"The code is based from C:
+"The code is based from C:
 	https://www.sunfounder.com/learn/Super_Kit_V2_for_RaspberryPi/lesson-14-adxl345-super-kit-for-raspberrypi.html"
 
 	| acc_x acc_y acc_z |

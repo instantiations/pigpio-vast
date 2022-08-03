@@ -11,7 +11,6 @@ Class {
 
 { #category : 'Not categorized' }
 GpioDeviceHBridge >> configPin: pinNumber [
-
 	library setPin: pinNumber direction: GpioOutput; setPwmRangePin: pinNumber value: 100.
 
 ]
@@ -19,7 +18,7 @@ GpioDeviceHBridge >> configPin: pinNumber [
 { #category : 'Not categorized',
   #vaVisibility : 'private' }
 GpioDeviceHBridge >> pinA: pinANumber pinB: pinBNumber gpioInterface: aRaspberryGpioDaemonInterface [
-	"Set up the two pins - configure them for pwm.
+"Set up the two pins - configure them for pwm.
 		To create a new instance of GpioDeviceHBridge,
 			call RaspberryGpioDaemonInterface>createGpioDeviceHBridge:pinB:."
 
@@ -33,7 +32,6 @@ GpioDeviceHBridge >> pinA: pinANumber pinB: pinBNumber gpioInterface: aRaspberry
 { #category : 'Not categorized',
   #vaVisibility : 'private' }
 GpioDeviceHBridge >> setActivePinTo: speed [
-
 	"Set the active pin value. Don't use except from #speed:
 		soft PWM pins will be configured by the RaspberryGpioDaemonInterface"
 
@@ -43,7 +41,6 @@ GpioDeviceHBridge >> setActivePinTo: speed [
 
 { #category : 'Not categorized' }
 GpioDeviceHBridge >> speed: speed [
-
 	"Try to run the motor at 'speed' % of whatever the applicable voltage can provide.
 		We need to choose the appropriate pin to pwm wiggle, and make sure that the unused on is set to 0 before firing up the 'live' pin"
 	| motorSpeed |

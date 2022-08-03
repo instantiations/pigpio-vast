@@ -13,7 +13,7 @@ Class {
 
 { #category : 'Not categorized' }
 GpioSerialBus class >> new [
-	"#new cannot be used to create a GpioSerialBus or its sub classes.
+"#new cannot be used to create a GpioSerialBus or its sub classes.
 		See RaspberryGpioDaemonInterface>createI2cBus: for I2CGpioSerialBus and
 		RaspberryGpioDaemonInterface>createSpiBusChannel:speed:flags: for SPIGpioSerialBus."
 
@@ -23,7 +23,7 @@ GpioSerialBus class >> new [
 
 { #category : 'Not categorized' }
 GpioSerialBus >> handle [
-	"Answer the handle we are connected with."
+"Answer the handle we are connected with."
 
 	^handle.
 
@@ -31,7 +31,7 @@ GpioSerialBus >> handle [
 
 { #category : 'Not categorized' }
 GpioSerialBus >> interface [
-	"Answer our RaspberryGpioDaemonInterface.
+"Answer our RaspberryGpioDaemonInterface.
 		#interface is probably a better name than #library but a lot of code from the original Squeak interface uses #library."
 
 	^library.

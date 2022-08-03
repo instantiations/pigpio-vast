@@ -13,14 +13,12 @@ Class {
 
 { #category : 'initialize-release' }
 GpioDeviceDRV8835MotorDrive >> setDirectionPinTo: dir [
-
 	library pin: directionPin write: dir.
 
 ]
 
 { #category : 'initialize-release' }
 GpioDeviceDRV8835MotorDrive >> setSpeedPinTo: speed [
-
 	library setPwmPin: speedPin value: speed.
 
 
@@ -28,7 +26,6 @@ GpioDeviceDRV8835MotorDrive >> setSpeedPinTo: speed [
 
 { #category : 'initialize-release' }
 GpioDeviceDRV8835MotorDrive >> speed: speed [
-
 	"try to run the motor at 'speed' % of whatever the applicable voltage can provide."
 	| motorSpeed |
 	motorSpeed := speed min: 100 max: -100.
@@ -51,7 +48,7 @@ GpioDeviceDRV8835MotorDrive >> speed: speed [
 { #category : 'initialize-release',
   #vaVisibility : 'private' }
 GpioDeviceDRV8835MotorDrive >> speedPin: sPin directionPin: dPin gpioInterface: aPiGpiodInterface [
-	"Set up the two pins - configure pinA for pwm and pinB for digital writing.
+"Set up the two pins - configure pinA for pwm and pinB for digital writing.
 		To create a new instance of GpioDeviceDRV8835MotorDrive,
 			call RaspberryGpioDaemonInterface>createGpioDeviceDRV8835MotorDrive:directionPin:."
 

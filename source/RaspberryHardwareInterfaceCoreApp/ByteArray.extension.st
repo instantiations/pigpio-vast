@@ -4,7 +4,7 @@ Extension {
 
 { #category : 'Raspberry Tools' }
 ByteArray >> as2ByteArray [
-	"Answer just the first two bytes."
+"Answer just the first two bytes."
 	| bytes |
 
 	bytes := ByteArray new: 2.

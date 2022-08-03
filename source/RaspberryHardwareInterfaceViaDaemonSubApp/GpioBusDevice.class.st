@@ -12,7 +12,7 @@ Class {
 
 { #category : 'Not categorized' }
 GpioBusDevice >> bus [
-	"Answer the devices bus object."
+"Answer the devices bus object."
 
 	^bus.
 
@@ -20,7 +20,7 @@ GpioBusDevice >> bus [
 
 { #category : 'Not categorized' }
 GpioBusDevice >> release [
-	"Release any external library connections etc."
+"Release any external library connections etc."
 
 	bus release.
 
@@ -28,7 +28,7 @@ GpioBusDevice >> release [
 
 { #category : 'Not categorized' }
 GpioBusDevice >> shutDown [
-	"Release any external library connections etc."
+"Release any external library connections etc."
 
 	bus release.
 
